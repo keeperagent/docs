@@ -1,0 +1,102 @@
+---
+title: "Overview"
+---
+
+All features of KeeperAgent are designed to help you create automated workflows for trading, token launch, and others blockchain specific tasks. The key features are conveniently displayed in the sidebar.
+The three most important functions are: **AI Agent**, **Workflows**, **Campaign**, and **Schedule**. The remaining features serve as support tools or inputs for these main functions:
+
+<div align="center">
+  <img src="/images/overview-image-1.png" alt="Key features of KeeperAgent" />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    Key features of KeeperAgent
+  </p>
+</div>
+
+## Trading AI Agent
+
+Our AI agent simplifies trading across multiple wallets. For example, with 100 wallets, prompt '_Buy a total of \$100 token 9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump_' and the agent will randomly distribute \$100 across each wallet and execute the trades.
+
+<div align="center">
+  <img
+    src="/images/overview-image-2.png"
+    alt="Coordinate trades across multiple wallets using AI agent"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    Coordinate trades across multiple wallets using AI agent
+  </p>
+</div>
+
+## Workflow Management
+
+The Workflow feature is KeeperAgent's core functionality, the most important feature you'll use more than any other. It enables you to easily manage and build workflows for various tasks through a simple drag-and-drop interface.
+
+<div align="center">
+  <img src="/images/overview-image-3.png" alt="Workflow management" />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    Workflow management interface
+  </p>
+</div>
+
+<div align="center">
+  <img
+    src="/images/overview-image-4.png"
+    alt="Workflow details: Easily build your workflow by drag-and-drop"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    Workflow details: Easily build your workflow by drag-and-drop.
+  </p>
+</div>
+
+## Campaign Management
+
+Once you have created a workflow, you need to set up a Campaign to run it. Each **Workflow** serves as a guide that outlines the tasks and their execution order, while the **Campaign** is where these tasks are actually carried out.
+
+For workflows that require input data, the campaign is also where you configure these inputs. For example, if you want to run a Swap workflow on the Uniswap interface for 100 wallets, the campaign will take each wallet from your list and execute the workflow for each one in turn. The input data for a workflow is referred to as a `Profile`.
+
+<div align="center">
+  <img
+    src="/images/campaign-vi-light.png"
+    alt="A Campaign is where you configure Profiles, Extensions, and Proxies to be used when running a workflow."
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    A Campaign is where you configure Profiles, Extensions, and Proxies to be
+    used when running a workflow.
+  </p>
+</div>
+
+Additionally, Campaign allows you to configure extensions (such as Metamask, Rabby, Phantom, Martian, etc.) and set up proxies (in case you want to use a multiple IP address) when running workflows.
+
+## Schedule Management
+
+Once you have created your campaigns, you can immediately run your workflows. However, if you need to schedule campaigns to run at specific times or want to repeat them multiple times, you should use the scheduling feature. Our app is capable of managing and executing many campaigns simultaneously.
+
+## Other Features
+
+**Wallet management** and **Resource management** serve as inputs for creating **Profile**. This is a straightforward function and will be explained in detail later.
+
+The **Proxy** feature helps you manage proxies or third-party proxy services.
+
+The **Extension** management allows you to install extensions into Chrome profiles, which can be used in workflows that require interaction with browser extensions.
+
+<div align="center">
+  <img
+    src="/images/overview-image-6.png"
+    alt="Manage and configure extensions for your Chrome profiles"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    Manage and configure extensions for your Chrome profiles
+  </p>
+</div>
+
+The **Node Provider** feature allows you to manage blockchain node URLs (also known as RPC node URLs). These node providers are essential for workflows that require direct interaction with the blockchain and smart contracts, such as reading data from or writing data to the blockchain.
+
+<div align="center">
+  <img
+    src="/images/node-provider-management-image-2.png"
+    alt="Manage blockchain nodes for each chain type: Solana, Sui, Aptos, and EVM blockchains."
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    Manage blockchain nodes for each chain type: Solana, Sui, Aptos, and EVM
+    blockchains.
+  </p>
+</div>

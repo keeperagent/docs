@@ -1,0 +1,48 @@
+---
+title: "Processor Import wallet"
+description: "Import a wallet into Rabby"
+---
+
+This processor lets you import a Rabby wallet using either a seed phrase or a private key. In workflow that rely on Rabby, you typically place it right after `Start`. It streamlines the entire process, just drag and drop to handle the wallet import.
+
+<div align="center">
+<img src="/images/rabby-import-wallet-example.png" alt="Import wallet in Rabby" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Import wallet in Rabby
+
+</p>
+
+</div>
+
+Import by seed phrase
+
+<div align="center">
+<img src="/images/rabby-import-wallet-example-3.png" alt="Import by seed phrase" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Import by seed phrase
+
+</p>
+
+</div>
+
+Import by private key
+
+<div align="center">
+<img src="/images/rabby-import-wallet-example-5.png" alt="Import by private key" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Import by private key
+
+</p>
+
+</div>
+
+## Configuration fields
+
+| Field       | Required | Description                                                                                                                            |
+| ----------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Seed phrase | Yes      | The wallet's seed phrase is stored in each profile's default `WALLET_PHRASE` variable, so you can access it directly from there        |
+| Private key | Yes      | It's the wallet's private key. Every profile includes a default variable that stores it, so just use the `WALLET_PRIVATE_KEY` variable |
+| Password    | Yes      | This is the password used to unlock the Rabby wallet                                                                                   |

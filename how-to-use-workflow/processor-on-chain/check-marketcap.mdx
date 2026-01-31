@@ -1,0 +1,62 @@
+---
+title: "Processor Check marketcap"
+---
+
+This processor helps you check whether a token's market cap meets the specified condition.
+
+The `Check market cap` Processor evaluates a token's market cap over a specified timeframe and only returns `TRUE` if every market cap datapoint within that period meets your chosen condition. This helps avoid sudden price spikes or drops, and prevents false signals caused by brief candle wicks.
+
+For example, if you're creating a limit order scenario to sell the [SNP500](https://dexscreener.com/solana/hhc4mjnyiyhdbpugbkcnixe3kh8gd19ugzf4gudit9ma) token with the condition that, over the past 3 minutes, SNP500 market cap has always been greater than $122000, you can use this processor
+
+<div align="center">
+  <img
+    src="/images/check-marketcap-example.png"
+    alt="Configure the Check market cap Processor"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    Configure the Check market cap Processor
+  </p>
+</div>
+
+The processor will record the market cap based on your selected timeframe and compare the token's market cap against your chosen threshold (trigger point). To view the market cap history processed by the processor, right-click on the processor and select `View market cap`.
+
+<div align="center">
+  <img
+    src="/images/check-marketcap-example-3.png"
+    alt="View the market cap of the token currently being processed by the processor"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    View the market cap of the token currently being processed by the processor
+  </p>
+</div>
+
+<div align="center">
+  <img
+    src="/images/check-marketcap-example-5.png"
+    alt="Token market cap chart within the processor, along with your selected trigger threshold"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    Token market cap chart within the processor, along with your selected
+    trigger threshold
+  </p>
+</div>
+
+<div align="center">
+  <img
+    src="/images/check-marketcap-example-7.png"
+    alt="The processor's result will be stored in a variable, with a value of either TRUE or FALSE"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    The processor's result will be stored in a variable, with a value of either
+    `TRUE` or `FALSE`
+  </p>
+</div>
+
+Configuration details:
+
+| Field name              | Required? | Detail                                                                                                                                                                                                                                                         |
+| ----------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Pool interval (seconds) | Yes       | How many seconds between each market cap update                                                                                                                                                                                                                |
+| Timeframe (seconds)     | Yes       | The timeframe over which you want to check the market cap. For example, if you select `180` seconds, the processor will evaluate all market cap datapoints from the past `180` seconds and only return `TRUE` if every datapoint meets the specified condition |
+| Condition               | Yes       | Condition type: `greater than`, `less than`, `equal to`, or `not equal to`                                                                                                                                                                                     |
+| Comparison value        | Yes       | The market cap threshold you want to check                                                                                                                                                                                                                     |

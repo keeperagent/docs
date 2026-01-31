@@ -1,0 +1,25 @@
+---
+title: "Schedule managment"
+description: "schedule Workflow execution"
+---
+
+This feature allows you to schedule Workflow execution. Note: Only workflows that are part of a campaign can be scheduled.
+
+You can configure workflows to run in various modes, for example:
+
+- Schedule a workflow to run daily, starting at 7 AM
+- Schedule a workflow to run only once, starting at 7 AM on January 1, 2026
+- Schedule a workflow to run only on even-numbered days, starting at 7 AM
+- Schedule three different workflows to run in sequence, starting at 7 AM. Each workflow will begin only after the previous one has finished, following this order: Workflow `1` → Workflow `2` → Workflow `3`.
+
+Workflows within the same schedule will run sequentially, while workflows in different schedules can run in parallel. For example, **Schedule 1** includes `Workflow 1` → `Workflow 2` → `Workflow 3`, and **Schedule 2** includes `Workflow 4` → `Workflow 5` → `Workflow 6`. `Workflows 4, 5, 6` can run in parallel with `Workflows 1, 2, 3`. This means you can execute many different workflows simultaneously using the scheduling feature.
+
+![Schedule](/images/schedule.png)
+
+<div align="center">
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Schedule feature interface
+
+</p>
+
+</div>

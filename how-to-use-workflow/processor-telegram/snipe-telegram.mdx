@@ -1,0 +1,25 @@
+---
+title: "Processor Snipe Telegram"
+description: "Monitor and retrieve messages from Telegram chat"
+---
+
+This processor monitors and retrieves the latest messages from a Telegram chat
+
+<div align="center">
+<img src="/images/snipe-telegram-example.png" alt="Example: snipe new messages from Telegram chat" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example: snipe new messages from Telegram chat
+
+</p>
+
+</div>
+
+## Configuration fields
+
+| Field                   | Required | Description                                                                          |
+| ----------------------- | -------- | ------------------------------------------------------------------------------------ |
+| Variable to save result | Yes      | Content of new message be assigned to this variable. For example: `TELEGRAM_MESSAGE` |
+| Bot token               | Yes      | The bot's token for integrating with Telegram                                        |
+| Chat ID or Username     | Yes      | Chat ID or Username of target chat                                                   |
+| Mode                    | Yes      | How to process each new message, you can read from here                              |

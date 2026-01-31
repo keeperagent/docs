@@ -1,0 +1,38 @@
+---
+title: "Processor Update profile"
+description: "Update profile information"
+---
+
+Each profile supports up to 10 additional columns, and this processor lets you update those values.
+
+Use this processor in scenarios such as these:
+
+- In a workflow that retrieves each wallet's USDT balance, run the Update profile processor right after the Get balance processor to store the `WALLET_BALANCE` variable in the USDT balance column.
+- After each swap, store the transaction hash for every wallet by adding a Transaction hash column and using this processor to capture that transaction hash.
+
+<div align="center">
+![Profile additional columns](/images/update-profile-example.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Profile additional columns
+
+</p>
+
+</div>
+
+<div align="center">
+![Configure the Update profile processor](/images/update-profile-example-3.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Configure the Update profile processor
+
+</p>
+
+</div>
+
+## Configuration fields
+
+| Field                        | Required | Description                                          |
+| ---------------------------- | -------- | ---------------------------------------------------- |
+| Column                       | Yes      | Select the column where you'd like to store the data |
+| Value stored in a sub column | Yes      | Pick the value you want stored in this column        |

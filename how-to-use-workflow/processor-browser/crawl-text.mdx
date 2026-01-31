@@ -1,0 +1,36 @@
+---
+title: "Processor Crawl text"
+description: "Extract text from an element using CSS or XPath selector"
+---
+
+This processor extracts the text contained within any element you target via a CSS or XPath selector.
+
+<div align="center">
+<img src="/images/crawl-text-example.png" alt="Example extract the ETH price from Coingeko" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example extract the ETH price from Coingeko
+
+</p>
+
+</div>
+
+The above example captures the ETH price from Coingeko using a CSS selector.
+
+<div align="center">
+<img src="/images/crawl-text-example-3.png" alt="Configuration details" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Configuration details
+
+</p>
+
+</div>
+
+## Configuration fields
+
+| Field                   | Required | Description                                                                                                                         |
+| ----------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Variable to save result | Yes      | This processor will return the token balance in your wallet. Choose a variable name to store this result. For example: `CRAWL_TEXT` |
+| CSS selector            | Yes      | CSS selector for the element that holds the content to extract                                                                      |
+| XPath selector          | Yes      | XPath selector for the element that holds the content to extract                                                                    |

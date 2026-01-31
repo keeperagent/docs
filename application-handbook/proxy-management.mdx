@@ -1,0 +1,33 @@
+---
+title: "Proxy management"
+---
+
+These proxies will be used on nodes that interact with the browser. For example, if an airdrop is restricted by IP address, you can assign a different proxy to each browser profile.
+
+## Static proxy (fixed proxy)
+
+If you want to launch the browser with a set of available static proxies (IP, port), use the static proxy management feature. When opening the browser, each instance will sequentially use a proxy from this set.
+
+<div align="center">
+![Static proxy management](/images/proxy-management-image-1.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Static proxy management
+
+</p>
+
+</div>
+
+## Rotating proxy
+
+If you want to use available proxy services like [WWWProxy](https://www.wwproxy.com/home?lang=en), simply enter the API key from these third-party services into KeeperAgent. When you launch the browser, we will automatically retrieve proxies based on your campaign and workflow settings (for example, one proxy may be used for a single browser profile, or shared among up to five profiles). The system will also automatically switch to a new proxy when the current one expires.
+
+<div align="center">
+![Rotating proxy management](/images/proxy-management-image-2.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Rotating proxy management
+
+</p>
+
+</div>

@@ -1,0 +1,24 @@
+---
+title: "Processor Calculate"
+---
+
+This processor performs addition, subtraction, multiplication, or division on numbers and stores the result in a variable.
+
+For example, when swapping ETH to USDT (selling ETH), you might want to retain some ETH, either to avoid selling the entire balance or to cover gas fees. This processor handles that calculation for you.
+
+<div align="center">
+<img src="/images/calculate-example.png" alt="Example calculate the token quantity to swap" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example calculate the token quantity to swap
+
+</p>
+
+</div>
+
+## Configuration fields
+
+| Field name              | Required? | Detail                                                                                                                                                            |
+| ----------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Variable to save result | Yes       | The processor outputs the computed value; assign a variable name to store it. For example, `NATIVE_BALANCE_MINUS`                                                 |
+| Decimal part            | No        | Represents the decimal portion of the result. For example, with `2` decimal places the output might be 1.34 or 2.54; with `1` decimal place, you'd see 1.3 or 2.5 |

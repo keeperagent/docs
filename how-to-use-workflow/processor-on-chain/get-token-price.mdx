@@ -1,0 +1,62 @@
+---
+title: "Processor Get token price"
+---
+
+This processor allows you to retrieve token prices from [CoinGecko](https://coingecko.com/) or [Dexscreener](https://dexscreener.com/)
+
+Configuration details:
+
+| Field name              | Required? | Detail                                                                                                                          |
+| ----------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Variable to save result | Yes       | This processor will return the token price in USD. Choose a variable name to store this result.<br />For example: `TOKEN_PRICE` |
+| Data source             | Yes       | Choose to retrieve prices from either CoinGecko or Dexscreener                                                                  |
+
+### Retrieve the price from CoinGecko
+
+<div align="center">
+  <img
+    src="/images/get-token-price-example.png"
+    alt="For example, retrieving the price of ETH from CoinGecko."
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    For example, retrieving the price of ETH from CoinGecko.
+  </p>
+</div>
+
+Configuration details:
+
+| Field name | Required? | Detail                                                                  |
+| ---------- | --------- | ----------------------------------------------------------------------- |
+| Coin ID    | Yes       | This refers to the `API ID`<br /><br />field on the CoinGecko interface |
+
+<div align="center">
+  <img
+    src="/images/coinid_coingeko.png"
+    alt="For example, retrieving the Coin ID from the API ID field for Ethereum on CoinGecko"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    For example, retrieving the Coin ID from the API ID field for
+    [Ethereum](https://www.coingecko.com/en/coins/ethereum) on CoinGecko
+  </p>
+</div>
+
+### Retrieve the price from Dexscreener
+
+<div align="center">
+  <img
+    src="/images/get-token-price-example-3.png"
+    alt="For example, retrieving the price of the DEGEN token on Dexscreener."
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    For example, retrieving the price of the
+    [DEGEN](https://dexscreener.com/base/0xc9034c3e7f58003e6ae0c8438e7c8f4598d5acaa)
+    token on Dexscreener.
+  </p>
+</div>
+
+Configuration details:
+
+| Field name    | Required? | Detail                                                                                                                      |
+| ------------- | --------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Chain ID      | Yes       | The blockchain's Chain ID, which you can look up on the [ChainList](https://chainlist.org/?search=Base) website<br /><br /> |
+| Token address | Yes       | The address of the token for which you want to retrieve the price                                                           |

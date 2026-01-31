@@ -1,0 +1,24 @@
+/* Increase sidebar font size */
+#sidebar,
+#sidebar-content,
+.sidebar-group,
+.sidebar-group a,
+.sidebar-group button,
+.nav-anchor,
+.nav-dropdown-item {
+  font-size: 0.9375rem !important; /* 15px - increased from default ~13px */
+  line-height: 1.5 !important;
+}
+
+/* Increase sidebar group headings */
+.sidebar-group-header,
+.sidebar-title {
+  font-size: 0.875rem !important; /* 14px for group headings */
+  font-weight: 600 !important;
+}
+
+/* Increase navigation items font size */
+#navigation-items a,
+#navigation-items button {
+  font-size: 0.9375rem !important;
+}

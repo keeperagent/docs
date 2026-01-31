@@ -1,0 +1,46 @@
+---
+title: "Processor Swap Kyberswap"
+---
+
+This Processor allows you to perform swaps using [Kyberswap Meta Aggregator](https://docs.kyberswap.com/kyberswap-solutions/kyberswap-aggregator/contracts/aggregator-contract-addresses) contract, supported on EVM-compatible chains.
+
+<div align="center">
+<img src="/images/swap-kyberswap-image-1.png" alt="Swap Kyberswap configuration" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example: Swapping AIXBT tokens to ETH
+
+</p>
+
+</div>
+
+In the example above, the configuration swaps [AIXBT](https://basescan.org/token/0x4F9Fd6Be4a90f2620860d680c0d4d5Fb53d1A825) tokens to ETH on the Base network.
+
+## Configuration fields
+
+| Field                        | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ---------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Variable to save result      | Yes      | This Processor will output the transaction hash of the swap. You can choose a variable name to store the transaction hash. For example: `TX_HASH_SWAP_TOKEN_EVM`                                                                                                                                                                                                                                                  |
+| Private key                  | Yes      | This is the private key of the wallet performing the transaction. Each Profile has a default variable for storing the private key, so you can use the default variable `WALLET_PRIVATE_KEY`                                                                                                                                                                                                                       |
+| Chain                        | Yes      | The blockchain network where you want to perform the swap                                                                                                                                                                                                                                                                                                                                                         |
+| Node endpoint group          | Yes      | Select the node provider to interact with the blockchain                                                                                                                                                                                                                                                                                                                                                          |
+| Input token address          | Yes      | For example, if you want to swap AIXBT for ETH (sell AIXBT), enter the address of the AIXBT token in this field                                                                                                                                                                                                                                                                                                   |
+| Output token address         | Yes      | Enter the address of the token you want to receive after the swap. For example, if you are swapping AIXBT for WETH (selling AIXBT), input the address of the WETH token here. If you prefer to receive the native token instead of WETH, you can select `Receive native token`as the output token                                                                                                                 |
+| Input token amount           | Yes      | Enter the amount of tokens you want to sell. For example, if you want to sell 1,000 AIXBT for ETH, enter `1000`                                                                                                                                                                                                                                                                                                   |
+| Slippage tolerance (%)       | Yes      | Maximum slippage for swaps. For pools with low price volatility, you should set this value low (e.g., 0.3%, 0.5%). For pools with high price volatility over short periods, set a higher value to increase the likelihood of a successful swap                                                                                                                                                                    |
+| Max price impact (%)         | Yes      | Maximum time allowed to complete the swap transaction. For example, if you enter `10`, the transaction will be canceled (reverted) if the swap is not completed within 10 seconds                                                                                                                                                                                                                                 |
+| Deadline (second)            | Yes      | Transaction timeout window in seconds                                                                                                                                                                                                                                                                                                                                                                             |
+| Gas limit                    | No       | Gas limit for executing the transaction                                                                                                                                                                                                                                                                                                                                                                           |
+| Gas price (Gwei)             | No       | Gas price for executing the transaction. If you do not specify a value, the gas price will default to the current average on the chain. For best results, it is recommended to set the gas price to increase the likelihood of a successful swap transaction                                                                                                                                                      |
+| Total number of transactions | Yes      | The minimum value is 1. If you enter a value greater than 1, such as `10`, this Processor will broadcast 10 swap transactions simultaneously, each with a different `nonce`, to increase the likelihood that multiple transactions are mined in the same block                                                                                                                                                    |
+| Wait for confirmation?       | No       | If you enable this option, the Processor will wait for the swap transaction to be confirmed before proceeding to the next Processor. If you leave it unchecked, the Processor will broadcast the swap transaction without waiting for confirmation and immediately move on to the next Processor                                                                                                                  |
+| Included sources             | No       | If you want your swap transaction to route only through specific protocols, enter a list of DEX IDs here, separated by commas. For example, to swap exclusively via Uniswap V3 and TraderJoe, enter: `uniswapv3`,`traderjoe`. For more details, refer to [this documentation](https://docs.kyberswap.com/kyberswap-solutions/kyberswap-aggregator/aggregator-api-specification/evm-swaps#get-chain-api-v1-routes) |
+| Excluded sources             | No       | If you want your swap transaction to avoid certain protocols, enter a list of DEX IDs here, separated by commas. For example, to exclude Pancakeswap V2, Quickswap, and TraderJoe, enter: pancake,quickswap. For more details, refer to [this documentation](https://docs.kyberswap.com/kyberswap-solutions/kyberswap-aggregator/aggregator-api-specification/evm-swaps#get-chain-api-v1-routes)                  |
+
+### How to select Gas Limit and Gas Price
+
+Refer to [this documentation](https://docs.keeperagent.com/how-to-use-workflow/processor-swap/processor-swap-uniswap#how-to-select-gas-limit-and-gas-price)
+
+### List DEX ID
+
+Refer to [this documentation](https://docs.kyberswap.com/kyberswap-solutions/kyberswap-aggregator/dex-ids)

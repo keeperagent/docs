@@ -1,0 +1,51 @@
+---
+title: "Processor Execute code"
+---
+
+The Execute code processor runs a snippet of JavaScript and assigns the result to a profile variable.
+
+<div align="center">
+<img src="/images/execute-code-example.png" alt="Example script of using Execute code processor" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example script of using Execute code processor
+
+</p>
+
+</div>
+
+In the script above variable `COUNT` starts at `1`, the `Execute code` processor increments it and stores the outcome in `EXECUTED_RESULT` .
+
+<div align="center">
+<img src="/images/execute-code-example-3.png" alt="Configure the Execute code processor" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Configure the Execute code processor
+
+</p>
+
+</div>
+
+<div align="center">
+<img src="/images/execute-code-example-5.png" alt="The processor's output is stored in EXECUTED_RESULT" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+The processor's output is stored in <code>
+EXECUTED_RESULT</code>
+
+</p>
+
+</div>
+
+This processor offers two execution modes:
+
+- `Without browser`: the JavaScript snippet runs inside Node.js's [VM](https://nodejs.org/api/vm.html) with no browser involvement, so pick this when your code doesn't need to interact with browser.
+- `Run in browser`: the JavaScript executes inside Chrome DevTools, launching the browser so you can interact with page elements, for example `document.querySelector(".title").innerHTML`
+
+## Configuration fields
+
+| Field name              | Required? | Detail                                                                                                                                   |
+| ----------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Variable to save result | Yes       | <p> This processor outputs a random number, so select a variable to capture it.</p>  <p> For example <code> EXECUTED_RESULT</code>  </p> |
+| Mode                    | Yes       | <code> Without browser</code>   or <code> Run in browser</code>                                                                          |
+| Javascript code         | Yes       | The code snippet you want to execute                                                                                                     |

@@ -1,0 +1,28 @@
+---
+title: "Processor On/Off profile"
+description: "Mark profiles as active or inactive"
+---
+
+Each Profile has two states: Active or Inactive. Only **Active** profiles are selected to run workflows, **Inactive** profiles are skipped."
+
+Example: With 1000 wallets, you want to run a workflow that requires wallets with USDT balance above \$500. Only 10 wallets qualify. To optimize performance, pre-process Profile data: build a separate workflow to check balances, then use the `On/Off profile` Processor to mark Profiles with USDT balance below \$500 as Inactive.
+
+<div align="center">
+![Profile status column: Active or Inactive](/images/on-off-profile-example.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Profile status column: Active or Inactive
+
+</p>
+
+</div>
+
+<div align="center">
+![Mark Profiles with balance \< 500 as Inactive](/images/on-off-profile-example-3.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Mark Profiles with balance \< 500 as Inactive
+
+</p>
+
+</div>

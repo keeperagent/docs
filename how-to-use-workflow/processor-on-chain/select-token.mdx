@@ -1,0 +1,34 @@
+---
+title: "Processor Select token"
+---
+
+This processor lets you pick a token on a given chain as long as its balance exceeds a specific threshold. It currently supports EVM-based chains only.
+
+Use this processor when you want to bridge $100 from Arbitrum to Optimism but aren't sure whether your wallet holds enough USDT or USDC. It returns the token name and contract address of whichever asset satisfies the balance > 100 condition, storing them in `SELECTED_TOKEN_NAME` and `SELECTED_TOKEN_ADDRESS`.
+
+<div align="center">
+  <img
+    src="/images/select-token-example.png"
+    alt="For example, pick whichever token USDC or USDT meets the balance requirement"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    For example, pick whichever token USDC or USDT meets the balance requirement
+  </p>
+</div>
+
+Configuration details:
+
+| Field name          | Required? | Detail                                                                          |
+| ------------------- | --------- | ------------------------------------------------------------------------------- |
+| Chain               | Yes       | The chain you intend to interact with                                           |
+| Node endpoint group | Yes       | Select the node provider to interact with the blockchain                        |
+| Wallet address      | Yes       | The wallet address you want to check balance                                    |
+| Token name          | Yes       | A label for the token that corresponds to the address you want to check balance |
+| Token address       | Yes       | The address of the token you want to check balance                              |
+| Minimum balance     | Yes       | The minimum token balance your wallet must hold for that token to qualify       |
+
+<Info>
+  Note: You can list multiple (`Token name`, `Token address`, `Minimum balance`)
+  pairs. If none of them qualify, both `SELECTED_TOKEN_NAME` and
+  SELECTED_TOKEN_ADDRESS will come back empty.
+</Info>

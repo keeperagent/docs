@@ -1,0 +1,27 @@
+---
+title: "Processor Select chain"
+---
+
+This processor lets you pick a token across _multiple chains_, as long as its balance exceeds a specific threshold. It currently supports EVM chains only.
+
+This processor works much like the [Select token](https://docs.keeperagent.com/how-to-use-workflow/processor-on-chain/processor-select-token) processor, except it lets you configure multiple chains at once.
+
+If you need to move $100 from Arbitrum or Optimism to Base but aren't sure whether you hold enough USDT, USDC, or even on which chain you have the balance, this processor has you covered. It returns the chain name, token name, and token address for whichever token meets the "balance > 100" requirement, storing them in `SELECTED_CHAIN_NAME`, `SELECTED_TOKEN_NAME`, and `SELECTED_TOKEN_ADDRESS`.
+
+<div align="center">
+  <img
+    src="/images/select-chain-example.png"
+    alt="For example, pick a token from whichever chain meets your criteria"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    For example, pick a token from whichever chain meets your criteria
+  </p>
+</div>
+
+Field descriptions: the same as in the [Select token](https://docs.keeperagent.com/how-to-use-workflow/processor-on-chain/processor-select-token) processor.
+
+<Info>
+  Note: You can define multiple `(chain name, token name, token address, minimum
+  balance)` pairs. If none qualify, `SELECTED_CHAIN_NAME`,
+  `SELECTED_TOKEN_NAME`, and `SELECTED_TOKEN_ADDRESS` will remain empty.
+</Info>

@@ -1,0 +1,27 @@
+---
+title: "Campaign management"
+description: "the best way to run workflow"
+---
+
+As mentioned earlier, a `Profile` is a combination of a `Wallet` and `Resource`, and serves as the input for running workflows. A `Campaign` is the combination of `Profile`, `Workflow`, and `Proxy`.
+
+<Tip>
+  Each workflow is executed within its own campaign, where the campaign specifies which profiles should be used for the workflow
+</Tip>
+
+Each workflow is executed within its own campaign, where the campaign specifies which profiles should be used for the workflow
+
+A campaign will include the following configurations:
+
+- `Profile`: Each campaign will only run with profiles _from the same group_
+- `Workflow`: Each campaign can include one or multiple workflows, and these workflows will share the profiles configured within the campaign.
+- `Proxy`: If your workflow interacts with the Chrome browser and requires a proxy, you can configure it here. You may choose your own list of proxies (IP, port) or use available rotating proxy services such as WWproxy.
+- ... and other configurations
+
+### Why do workflows need to be run through campaigns instead of directly from the workflow management feature?
+
+We created the campaign feature to make running workflows more flexible. Instead of being limited to running a single workflow with only one Profile group, you can use the same workflows to create multiple campaigns and pair it with different Profile groups.
+
+<Tip>
+  Campaigns enable you to pair Workflows with Profile groups in flexible combinations: one Workflow with multiple Profile groups, or one Profile group with multiple Workflows.
+</Tip>

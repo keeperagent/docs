@@ -1,0 +1,28 @@
+---
+title: "Processor Check condition"
+description: "Evaluate conditions to determine workflow direction"
+---
+
+This processor decides the workflow's next steps based on a specific condition. The **On Success** and `On Error` sections are explained in detail [here](/how-to-use-workflow/processor-structure/general-settings-section).
+
+<div align="center">
+<img src="/images/check-condition-example.png" alt="Example checking the wallet balance" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example checking the wallet balance
+
+</p>
+
+</div>
+
+In the Uniswap swap workflow, if the wallet's `WALLET_BALANCE` (token balance) is greater than 0, that profile continues running; if the balance equal to **0**, the flow ends and shifts to another profile, skipping the Swap Uniswap processor entirely.
+
+<div align="center">
+<img src="/images/check-condition-example-3.png" alt="Example Swap Uniswap workflow" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example Swap Uniswap workflow
+
+</p>
+
+</div>

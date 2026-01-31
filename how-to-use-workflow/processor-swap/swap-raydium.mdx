@@ -1,0 +1,64 @@
+---
+title: "Processor Swap Raydium"
+---
+
+This Processor enables token swaps from a Raydium pool. The swap is executed via [Raydium AMM Routing](https://solscan.io/account/routeUGWgWzqBWFcrCfv8tritsqukccJPu3q5GPP3xS) contract, the same contract used when you swap tokens through the [Raydium](https://raydium.io/swap) interface.
+
+Libraries used in the swap Processor code:
+
+| Library name                                                                           | Version      |
+| -------------------------------------------------------------------------------------- | ------------ |
+| [@raydium-io/raydium-sdk-v2](https://www.npmjs.com/package/@raydium-io/raydium-sdk-v2) | 0.1.94-alpha |
+| [@solana/web3.js](https://www.npmjs.com/package/@solana/web3.js)                       | 1.95.0       |
+| [@solana/spl-token](https://www.npmjs.com/package/@solana/spl-token)                   | 0.4.6        |
+
+<Info>
+  Note: This Processor only swaps within a single pool and does not use an aggregator to swap across multiple pools. Therefore, you must configure the pool address for the swap.
+</Info>
+
+<div align="center">
+<img src="/images/swap-raydium-example.png" alt="Example: Swapping FARTCOIN tokens to SOL" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example: Swapping FARTCOIN tokens to SOL
+
+</p>
+
+</div>
+
+In the example above, the configuration swaps FARTCOIN tokens to SOL using the [FARTCOIN/SOL](https://dexscreener.com/solana/bzc9nzfmqkxr6fz1dbph7bdf9broyef6pnzesp7v5iiw) pool on the Solana network.
+
+## Configuration fields
+
+| Field name                                | Required? | Detail                                                                                                                                                                                                                                                                                           |
+| ----------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Variable to save result                   | Yes       | This Processor will output the transaction hash of the swap. You can choose a variable name to store the transaction hash. For example: `TX_HASH_SWAP_TOKEN_RAYDIUM`                                                                                                                             |
+| Private key                               | Yes       | This is the private key of the wallet performing the transaction. Each Profile has a default variable for storing the private key, so you can use the default variable `WALLET_PRIVATE_KEY`                                                                                                      |
+| Node endpoint group                       | Yes       | Select the node provider to interact with the blockchain                                                                                                                                                                                                                                         |
+| Pool address                              | Yes       | The address of the pool you want to swap                                                                                                                                                                                                                                                         |
+| Input token address                       | Yes       | A pool contains two tokens. Here, you enter the address of the token you want to swap from. For example, if you want to swap FARTCOIN for SOL (sell FARTCOIN), input the address of the FARTCOIN token in this field                                                                             |
+| Output token address                      | Yes       | Enter the address of the token you want to receive after the swap. For example, if you are swapping FARTCOIN for SOL (selling FARTCOIN), input the address of the SOL token here                                                                                                                 |
+| Amount of input token                     | Yes       | Enter the amount of tokens you want to sell. For example, if you want to sell 1,000 FARTCOIN for SOL, enter `1000`                                                                                                                                                                               |
+| Slippage tolerance (%)                    | Yes       | Maximum slippage for swaps. For pools with low price volatility, you should set this value low (e.g., 0.3%, 0.5%). For pools with high price volatility over short periods, set a higher value to increase the likelihood of a successful swap                                                   |
+| Max price impact (%)                      | Yes       | Maximum price impact for swaps. For pools with high liquidity, you should set this value low (e.g., 0.3%, 0.5%). For pools with low liquidity, you may choose a higher value                                                                                                                     |
+| Priority fee (Micro lamport)              | No        | Priority fee for executing transactions. If you leave this field blank, the system will use the current average priority fee of the chain. For best results, it is recommended to specify a priority fee to increase the likelihood of a successful swap transaction                             |
+| Total number of transaction               | Yes       | The minimum value is 1. If you enter a value greater than 1, such as `10`, this Processor will broadcast 10 swap transactions simultaneously to increase the chances of multiple transactions being mined in the same block                                                                      |
+| Wait for the transaction to be confirmed? | No        | If you enable this option, the Processor will wait for the swap transaction to be confirmed before proceeding to the next Processor. If you leave it unchecked, the Processor will broadcast the swap transaction without waiting for confirmation and immediately move on to the next Processor |
+
+#### How to select the Priority fee for the Processor
+
+If you want your transaction to be mined faster by competing on gas, you can manually set the `Priority fee (in micro lamports)` for the Processor.
+
+For example, if you want to swap tokens in the [FARTCOIN/SOL](https://dexscreener.com/solana/bzc9nzfmqkxr6fz1dbph7bdf9broyef6pnzesp7v5iiw) pool, review several recent transactions to see their Priority fee. This will help you select an appropriate value for the Processor.
+
+Using the following transaction as a reference: https://solscan.io/tx/dYyK6KWMEzeigoCWBhzebgBjK1LDqPwxJyv16abW1vjEDhfEEoGV6Q2V2PUEXWBzbyyRp6GWQDDGGYqesZE4Eq6, navigate to the **Instruction Detail** \> **SetComputeUnitLimit** section to view the Priority fee. Based on this, you can set the `Priority fee (Micro lamports)` to `250000`.
+
+<div align="center">
+<img src="/images/sol_priority_fee.png" alt="Example of how to determine the Priority fee" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example of how to determine the Priority fee
+
+</p>
+
+</div>

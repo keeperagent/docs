@@ -1,0 +1,37 @@
+---
+title: "Processor Get gas price"
+---
+
+This processor fetches the current average gas price on EVM, Aptos, and Sui chains.
+
+Configuration details:
+
+| Field name              | Required? | Detail                                                                                                                   |
+| ----------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Variable to save result | Yes       | This processor outputs the chain's current average gas price. Pick a variable name to store it. For example, `GAS_PRICE` |
+| Blockchain type         | Yes       | The chain whose gas price you want to retrieve                                                                           |
+| Node endpoint group     | Yes       | Select the node provider to interact with the blockchain                                                                 |
+
+<div align="center">
+  <img
+    src="/images/get-gas-price-example.png"
+    alt="Get Gas price on EVM chain"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    Get Gas price on EVM chain
+  </p>
+</div>
+
+<div align="center">
+  <img src="/images/get-gas-price-example-3.png" alt="Get Gas price on Sui" />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    Get Gas price on Sui
+  </p>
+</div>
+
+<div align="center">
+  <img src="/images/get-gas-price-example-5.png" alt="Get Gas price on Aptos" />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    Get Gas price on Aptos
+  </p>
+</div>

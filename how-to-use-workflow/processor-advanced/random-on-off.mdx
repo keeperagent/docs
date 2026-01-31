@@ -1,0 +1,22 @@
+---
+title: "Processor Random On/Off"
+description: "Randomly enable or disable workflow execution"
+---
+
+Use this processor to add randomness when your workflow runs. For example, if you have 100 profiles, you can randomly select 70% to execute, meaning 70 profiles run and 30 are skipped.
+
+<div align="center">
+<img src="/images/random-on-off-example.png" alt="Example Random On/Off configuration" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example Random On/Off configuration
+
+</p>
+
+</div>
+
+## Configuration fields
+
+| Field          | Required | Description                                                                                                                               |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Percentage (%) | No       | Percentage of profiles allowed to run out of the total, set it to 0 to prevent any profile from running and stop the workflow immediately |

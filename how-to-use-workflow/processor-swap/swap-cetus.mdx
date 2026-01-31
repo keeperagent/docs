@@ -1,0 +1,63 @@
+---
+title: "Processor Swap Cetus"
+---
+
+This Processor enables token swaps from a Cetus pool. The swap is executed using the [Cetus SDK](https://cetus-1.gitbook.io/cetus-developer-docs/developer/via-sdk/getting-started).
+
+Libraries used in the swap Processor code:
+
+| Library name                                                                                         | Version |
+| ---------------------------------------------------------------------------------------------------- | ------- |
+| [@cetusprotocol/cetus-sui-clmm-sdk](https://www.npmjs.com/package/@cetusprotocol/cetus-sui-clmm-sdk) | 5.1.10  |
+| [@mysten/sui](https://www.npmjs.com/package/@mysten/sui)                                             | 1.2.1   |
+
+<Info>
+  Note: This Processor only swaps within a single pool and does not use an aggregator to swap across multiple pools. Therefore, you must configure the pool address for the swap.
+</Info>
+
+<div align="center">
+<img src="/images/swap-cetus-example.png" alt="Example: Swapping HIPPO tokens to SUI" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example: Swapping HIPPO tokens to SUI
+
+</p>
+
+</div>
+
+In the example above, the configuration swaps HIPPO tokens to SUI using the [HIPPO/SUI](https://dexscreener.com/sui/0xb785e6eed355c1f8367c06d2b0cb9303ab167f8359a129bb003891ee54c6fce0) pool on the Sui network.
+
+## Configuration fields
+
+| Field name                                | Required? | Detail                                                                                                                                                                                                                                                                                                                 |
+| ----------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Variable to save result                   | Yes       | This Processor will output the transaction hash of the swap. You can choose a variable name to store the transaction hash. For example: `TX_HASH_SWAP_TOKEN_EVMN_CETUS`                                                                                                                                                |
+| Private key                               | Yes       | This is the private key of the wallet performing the transaction. Each Profile has a default variable for storing the private key, so you can use the default variable `WALLET_PRIVATE_KEY`                                                                                                                            |
+| Node endpoint group                       | Yes       | Select the node provider to interact with the blockchain                                                                                                                                                                                                                                                               |
+| Pool address                              | Yes       | The address of the pool you want to swap                                                                                                                                                                                                                                                                               |
+| Input token address                       | Yes       | A pool contains two tokens. Here, you enter the address of the token you want to swap from. For example, if you want to swap HIPPO for SUI (sell HIPPO), input the address of the HIPPO token in this field                                                                                                            |
+| Output token address                      | Yes       | Enter the address of the token you want to receive after the swap. For example, if you are swapping HIPPO for SUI (selling HIPPO), input the address of the SUI token here                                                                                                                                             |
+| Input token amount                        | Yes       | Enter the amount of tokens you want to sell. For example, if you want to sell 1,000 HIPPO for SUI, enter `1000`                                                                                                                                                                                                        |
+| Slippage tolerance (%)                    | Yes       | Maximum slippage for swaps. For pools with low price volatility, you should set this value low (e.g., 0.3%, 0.5%). For pools with high price volatility over short periods, set a higher value to increase the likelihood of a successful swap                                                                         |
+| Max price impact (%)                      | Yes       | Maximum price impact for swaps. For pools with high liquidity, you should set this value low (e.g., 0.3%, 0.5%). For pools with low liquidity, you may choose a higher value                                                                                                                                           |
+| Gas price (MIST)                          | No        | Gas price for executing the transaction. If you do not specify a value, the gas price will default to the current average on the chain. For best results, it is recommended to set the gas price to increase the likelihood of a successful swap transaction                                                           |
+| Total number of transaction               | Yes       | The minimum value is 1. If you enter a value greater than 1, such as `10`, this Processor will execute 10 swap transactions in a single batch. Unlike EVM or Solana, transactions interacting with the same token on Sui are processed sequentially—each transaction must be confirmed before the next one is executed |
+| Wait for the transaction to be confirmed? | No        | If you enable this option, the Processor will wait for the swap transaction to be confirmed before proceeding to the next Processor. If you leave it unchecked, the Processor will broadcast the swap transaction without waiting for confirmation and immediately move on to the next Processor                       |
+
+#### How to select the Gas Price (MIST) for the Processor
+
+If you want your transaction to be mined faster by competing on gas, you can manually set the `Gas Price (MIST)` for the Processor.
+
+For example, if you want to swap tokens in the [HIPPO/SUI](https://dexscreener.com/sui/0xb785e6eed355c1f8367c06d2b0cb9303ab167f8359a129bb003891ee54c6fce0) pool, review several recent transactions to see their Gas Price (in MIST). This will help you select an appropriate value for the Processor.
+
+Using the following transaction as a reference: https://suivision.xyz/txblock/9DMcpyu7WrHBQiRiBNEHNgAVfKVCDzehqSFbHEDiCrTu, navigate to the Gas Price section to see the value used. Based on this, you can set the Gas Price (in MIST) to 750 for the Processor.
+
+<div align="center">
+<img src="/images/sui_gas_price.png" alt="Example gas price" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example gas price
+
+</p>
+
+</div>

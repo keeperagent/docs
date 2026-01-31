@@ -1,0 +1,18 @@
+---
+title: "Setting for Skip"
+description: "all Processors are the same in this section"
+---
+
+This section determines whether a Process should run after the preceding Processor has finished. The default configuration is `Continue running`. You may alternatively select `Skip this Processor`, which causes the workflow to bypass that step and move forward to the subsequent Processor.
+
+<div align="center">
+<img src="/images/setting-for-skip-image-1.png" alt="Example of the Skip section for the Uniswap Swap Processor" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example of the Skip section for the Uniswap Swap Processor
+
+</p>
+
+</div>
+
+In the example above, the `Uniswap Swap` Processor will not run if the wallet balance stored in the variable `WALLET_BALANCE` is zero. When executing the workflow, it will skip the `Uniswap Swap` Processor and proceed to the next Processor, which is the `Telegram notification`. (`WALLET_BALANCE` is the variable that stores the result from the `Balance retrieval` Processor)

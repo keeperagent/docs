@@ -1,0 +1,66 @@
+---
+title: "Processor Read contract"
+---
+
+This processor reads data from any smart contract, just like the [Read Contract](https://basescan.org/address/0x03a520b32c04bf3beef7beb72e919cf822ed34f1#readContract) feature on block explorers. It currently supports EVM chains only.
+
+<div align="center">
+  <img
+    src="/images/read-contract-basescan-example.png"
+    alt="For example,  Read Contract on Basescan"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    For example, Read Contract on Basescan
+  </p>
+</div>
+
+<div align="center">
+  <img
+    src="/images/read-contract-example.png"
+    alt="Example configuration for a Read Contract processor"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    Example configuration for a Read Contract processor
+  </p>
+</div>
+
+The processor's output is stored in the variables listed under `Variables to store results`. After you paste in the ABI, simply click the `+` button and the variables will auto-fill in the same order as the ABI.
+
+<div align="center">
+  <img
+    src="/images/read-contract-variables-example.png"
+    alt="The returned variables appear in the same order as they do in the ABI"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    The returned variables appear in the same order as they do in the ABI
+  </p>
+</div>
+
+<div align="center">
+  <img src="/images/read-contract-example-3.png" alt="" />
+</div>
+
+Configuration details:
+
+| Field name                            | Required? | Detail                                                               |
+| ------------------------------------- | --------- | -------------------------------------------------------------------- |
+| Contract address                      | Yes       | The address of the contract you want to read from                    |
+| Contract ABI                          | Yes       | ABI of contract                                                      |
+| Method name                           | Yes       | The name of the function you call to retrieve data from the contract |
+| Parameter list                        | No        | The parameters used to call the function                             |
+| List of variables to save the results | Yes       | List the variables that store the returned results                   |
+| Node endpoint group                   | Yes       | Select the node provider to interact with the blockchain             |
+
+### How to obtain the contract ABI
+
+To grab a contract's ABI, open the [Code](https://basescan.org/address/0x03a520b32c04bf3beef7beb72e919cf822ed34f1#code) tab, scroll to the bottom, and copy the Contract ABI block
+
+<div align="center">
+  <img
+    src="/images/read-contract-abi-example.png"
+    alt="Contract ABI on Basescan"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    Contract ABI on Basescan
+  </p>
+</div>

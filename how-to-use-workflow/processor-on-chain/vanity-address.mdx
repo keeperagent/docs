@@ -1,0 +1,26 @@
+---
+title: "Processor Vanity address"
+---
+
+This processor generates addresses with a specific prefix or suffix, only support on Solana.
+
+For example, to launch a token on Pump.fun with the suffix, you need to pre-generate these addresses and save them for later use. The longer the suffix or prefix, the more time the processor takes to run.
+
+<div align="center">
+  <img
+    src="/images/vanity-address-example.png"
+    alt="Example: Generate token address ending with"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    Example: Generate token address ending with
+  </p>
+</div>
+
+Configuration details:
+
+| Field name                   | Required? | Detail                                                                            |
+| ---------------------------- | --------- | --------------------------------------------------------------------------------- |
+| Variable to save address     | Yes       | The generated address will be saved to this variable. For example:                |
+| Variable to save private key | Yes       | The private key of generated address will be saved to this variable. For example: |
+| Prefix                       | No        | Address prefix                                                                    |
+| Suffix                       | No        | Address suffix                                                                    |

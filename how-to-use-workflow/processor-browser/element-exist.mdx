@@ -1,0 +1,26 @@
+---
+title: "Processor Element exist"
+description: "Check if an element exists on the page"
+---
+
+This processor checks whether an element exists.
+
+When swapping tokens, an "Approve" button appears if approval is required. You'd click Approve and then sign the transaction in Rabby or Metamask. If the button doesn't appear, there's no need to sign the approval transaction. The Element Exists processor fits perfectly for handling this logic.
+
+<div align="center">
+<img src="/images/element-exist-example.png" alt="Example check whether the Approve button appears on the interface" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example check whether the Approve button appears on the interface
+
+</p>
+
+</div>
+
+## Configuration fields
+
+| Field                   | Required | Description                                                                                                                                                                                               |
+| ----------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Variable to save result | Yes      | The processor returns TRUE when the selected element is visible on the page; if it isn't found, the result is FALSE. Choose a variable name to store this outcome. For example, `IS_APPROVE_BUTTON_EXIST` |
+| CSS selector            | Yes      | CSS selector for the element you want to check                                                                                                                                                            |
+| XPath selector          | Yes      | XPath selector for the element you want to check                                                                                                                                                          |

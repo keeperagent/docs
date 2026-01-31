@@ -1,0 +1,27 @@
+---
+title: "Processor Solve captcha"
+description: "Solve captcha challenges automatically"
+---
+
+This processor solves `ReCaptcha`, `HCaptcha`, and `Cloudflare Turnstile` challenges.
+
+For any site displaying a captcha, drag in this processor, pick the captcha type, and it handles the rest. Solve times depend on [2Captcha](https://2captcha.com/)’s response speed and typically take 10 to 30 seconds.
+
+<div align="center">
+![Configuration details](/images/solve-captcha-example.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Configuration details
+
+</p>
+
+</div>
+
+This processor relies on the 2Captcha service, so add your [2Captcha](https://2captcha.com/) API key in the Configuration section.
+
+## Configuration fields
+
+| Field            | Required | Description                      |
+| ---------------- | -------- | -------------------------------- |
+| Captcha type     | Yes      | The captcha type you need solved |
+| 2Captcha API key | Yes      | API key of 2Captcha              |

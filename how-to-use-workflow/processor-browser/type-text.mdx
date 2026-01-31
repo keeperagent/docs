@@ -1,0 +1,26 @@
+---
+title: "Processor Type text"
+description: "Type text into an input field"
+---
+
+This processor lets you type text into a chosen input field.
+
+<div align="center">
+<img src="/images/type-text-example.png" alt="Example entering text into an input field" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example entering text into an input field
+
+</p>
+
+</div>
+
+## Configuration fields
+
+| Field                                  | Required | Description                                                                                             |
+| -------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
+| Content to enter                       | Yes      | Text you need to enter                                                                                  |
+| Typing speed (seconds)                 | Yes      | Delay after each character is typed, set it to 0 to enter everything in a single pass without pauses    |
+| CSS selector                           | Yes      | CSS selector for the input or any element you want to type into                                         |
+| XPath selector                         | Yes      | XPath selector for the input or any target element—you want to type into                                |
+| Clear any existing text before typing? | No       | If selected, the processor clears any pre-filled text in the input before typing your specified content |

@@ -1,0 +1,30 @@
+---
+title: "Processor Approve/Revoke token"
+---
+
+This processor allows you to create an Approve or Revoke transaction for a token. It only supports EVM chains
+
+<div align="center">
+  <img
+    src="/images/approve-revoke-token-example.png"
+    alt="For example, approving 1000 DEGEN tokens for Vitalik"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    For example, approving 1000
+    [DEGEN](https://basescan.org/address/0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed)
+    tokens for [Vitalik](https://etherscan.io/address/vitalik.eth)
+  </p>
+</div>
+
+Configuration details:
+
+| Field name                       | Required? | Detail                                                                                                                                                                                                                                                       |
+| -------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Variable name for storing result | Yes       | This processor will return the transaction hash of the operation. Choose a variable name to store the transaction hash. For example: `TX_HASH_APPROVE_OR_REVOKE_TOKEN_EVM`<br /><br />                                                                       |
+| Private key                      | Yes       | This is the private key of the wallet performing the transaction. Each Profile has a default variable for storing the private key, so you can use the default variable `WALLET_PRIVATE_KEY`                                                                  |
+| Token address                    | Yes       | The address of the token you want to approve or revoke                                                                                                                                                                                                       |
+| Spender address                  | Yes       | The wallet address for which you want to approve or revoke token usage rights                                                                                                                                                                                |
+| Approve or Revoke                | Yes       | Select the transaction type: Approve or Revoke. If you choose Revoke, you do not need to enter the `Token amount`                                                                                                                                            |
+| Token amount                     | Yes       | The amount of tokens you want to approve. If you select `Max amount`, you do not need to fill in this field                                                                                                                                                  |
+| Node endpoint group              | Yes       | Select the node provider to interact with the blockchain                                                                                                                                                                                                     |
+| Gas price (Gwei)                 | No        | Gas price for executing the transaction. If you do not specify a value, the gas price will default to the current average on the chain. For best results, it is recommended to set the gas price to increase the likelihood of a successful swap transaction |

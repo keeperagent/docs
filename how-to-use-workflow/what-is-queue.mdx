@@ -1,0 +1,64 @@
+---
+title: "What is queue"
+description: "the place to view data flowing during workflow execution"
+---
+
+The **Queue** sits between the processors and holds information about the Profiles that are currently running.
+
+For example, suppose the `Get wallet balance` processor finishes and you want to wait another 3 seconds before running the `Check balance` processor. Once the profile completes the wallet balance processor, it moves into the queue and waits there for 3 seconds. When that time is up, the profile proceeds to the `Check balance` processor to continue.
+
+<div align="center">
+![Queue between processors](/images/what-is-queue-image-1.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Queue between processors
+
+</p>
+
+</div>
+
+## View queue details
+
+To view the details of a queue, left-click the queue and choose `View queue`.
+
+<div align="center">
+![View queue details](/images/what-is-queue-image-2.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+View queue details
+
+</p>
+
+</div>
+
+If you choose **Clear queue**, every profile currently waiting is removed from the active flow, and the flows pull in new profiles to keep running.
+
+<div align="center">
+![Clear queue](/images/what-is-queue-image-3.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Details on the profiles currently running in the queue
+
+</p>
+
+</div>
+
+## View profile details
+
+To see the details for any profile in the queue, hover your mouse over the `Profile` column.
+
+As each processor runs, the variables attached to the Profile can change based on the logic of your workflow. To track those value changes or to debug, you can inspect the variables directly in the queue.
+
+<div align="center">
+![View profile details](/images/what-is-queue-image-4.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+View Profile detail in the queue
+
+</p>
+
+</div>
+
+<Tip>
+  Tip: To debug and see how variable values change during workflow execution, increase the **Waiting time** (e.g., 180 seconds).
+</Tip>

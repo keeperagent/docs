@@ -1,0 +1,48 @@
+---
+title: "General settings section"
+description: "all Processors are the same in this section"
+---
+
+All Processors share the same general settings section as follows:
+
+<div align="center">
+<img src="/images/general-settings-section-image-1.png" alt="Settings section for the Balance retrieval Processor" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Settings section for the Balance retrieval Processor
+
+</p>
+
+</div>
+
+This section contains key settings that define how a Processor runs:
+
+- `Wait time (seconds)`: After this Processor finishes running, the workflow will wait for a specified period before proceeding to the next Processor. For example, if the wait time is set to 3 seconds, the workflow will pause for 3 seconds after the `Balance retrieval` Processor completes, before moving on to the `Uniswap swap` Processor. If the wait time is set to 0, the workflow will immediately proceed to the next Processor without waiting.
+- `Timeout (seconds)`: The maximum time allowed for a Processor to complete its task. For example, if the timeout is set to 10 seconds and the `Balance retrieval` Processor does not finish within that time, the workflow will report an error. How this error is handled will be specified in the On error section.
+
+## Processor result handling
+
+When a Processor finishes running, there are two possible outcomes:
+
+- On success: The Processor successfully completes its task.
+- On error: The Processor reports an error during execution, which may be due to exceeding the maximum timeout or another issue.
+
+<Info>
+  When running, a workflow can execute multiple threads in parallel, with each thread operating on a separate Profile.
+</Info>
+
+For the `On success` result:
+
+| Action                                                          | Description                                                                                                                                                                                         |
+| --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Continue execution                                              | The workflow will wait for the specified `Waiting time` before proceeding to the next Processor                                                                                                     |
+| End the current profile and switch to running the next profile. | The workflow will not proceed to the next Processor but will stop immediately, marking the current Profile as having completed one round. A new Profile will then be selected to start the next run |
+
+For the `On error` result:
+
+| Action                                                                         | Description                                                                                                                                                                                         |
+| ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Continue execution                                                             | The workflow will wait for the specified `Waiting time` before proceeding to the next Processor                                                                                                     |
+| End the current profile and switch to running the next profile for a new round | The workflow will not proceed to the next Processor but will stop immediately, marking the current Profile as having completed one round. A new Profile will then be selected to start the next run |
+| Retry execution                                                                | The current Profile will be restarted from the beginning of the workflow, starting at Start                                                                                                         |
+| Pause                                                                          | Pause the entire workflow, including all parallel threads currently running within the workflow                                                                                                     |

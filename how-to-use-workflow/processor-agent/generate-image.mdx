@@ -1,0 +1,48 @@
+---
+title: "Processor Generate image"
+---
+
+This processor allows you to interact with OpenAI's **image** model. You can ask any question, and the model will return an image.
+
+<div align="center">
+<img src="/images/generate-image-image-1.png" alt="Generate image configuration" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example: Ask OpenAI model to generate an image
+
+</p>
+
+</div>
+
+<div align="center">
+<img src="/images/generate-image-image-2.png" alt="Generated image result" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Model return token name as `Virginia Power Token`, token symbol as `VPI`
+
+</p>
+
+</div>
+
+This is output image of above prompt:
+
+<img
+  src="/images/generate_image_result.avif"
+  alt="Generate Image Result"
+  title="Generate Image Result"
+  className="mx-auto"
+  style={{ width: "37%" }}
+/>
+
+## Configuration fields
+
+| Field                   | Required | Description                                                                             |
+| ----------------------- | -------- | --------------------------------------------------------------------------------------- |
+| Variable to save result | Yes      | The absolute path of image will be assigned to this variable. For example: `IMAGE_PATH` |
+| Prompt                  | Yes      | Prompt for image generation                                                             |
+| Model name              | Yes      | Model name                                                                              |
+| OpenAI API key          | Yes      | API key of OpenAI                                                                       |
+| Image size              | No       | Size of the generated image                                                             |
+| Image quality           | No       | Quality of the generated image                                                          |
+| Folder path             | Yes      | Folder path to save the generated image                                                 |
+| File name               | Yes      | File name of the generated image                                                        |

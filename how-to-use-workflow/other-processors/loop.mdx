@@ -1,0 +1,34 @@
+---
+title: "Processor Loop"
+description: "Loop through items or repeat actions"
+---
+
+The Loop processor repeats a section of a workflow multiple times. Unlike other processors, which connect to at most one input and one output, this one can chain many iterations.
+
+<div align="center">
+![Configure the Loop processor](/images/loop-example.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Configure the Loop processor
+
+</p>
+
+</div>
+
+<div align="center">
+![Example of running a workflow on repeat](/images/loop-example-3.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example of running a workflow on repeat
+
+</p>
+
+</div>
+
+In this example, the loop runs five times, raising **COUNT** from 1 through 2, 3, 4, 5, and 6.
+
+## Configuration fields
+
+| Field                         | Required | Description                                             |
+| ----------------------------- | -------- | ------------------------------------------------------- |
+| Number of iterations (rounds) | Yes      | How many times you want to repeat that part of workflow |

@@ -1,0 +1,25 @@
+---
+title: "Processor Select resource"
+description: "Select a resource from available options"
+---
+
+This processor checks whether an Resource already exists in the local database.
+
+<div align="center">
+![Configure the Check resource processor](/images/select-resource-example.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Configure the Check resource processor
+
+</p>
+
+</div>
+
+## Configuration fields
+
+| Field           | Required | Description                                                               |
+| --------------- | -------- | ------------------------------------------------------------------------- |
+| Search text     | Yes      | Choose the value you want to look up                                      |
+| Resource group  | Yes      | Select the Resource group you want to search                              |
+| Field to search | Yes      | Which field in that Resource group do you want to search                  |
+| Secret key      | No       | If your asset data is encrypted locally, provide the secret key to search |

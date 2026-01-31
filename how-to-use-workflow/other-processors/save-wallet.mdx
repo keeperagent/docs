@@ -1,0 +1,28 @@
+---
+title: "Processor Save wallet"
+description: "Save wallet information"
+---
+
+This processor creates a new wallet inside the Wallet group.
+
+For example, if you prefer not to use KeeperAgent's bulk wallet generator, build a workflow that spins up a fresh Metamask wallet, then capture the new address, seed phrase, and private key with this processor.
+
+<div align="center">
+![Configure the Save wallet processor](/images/save-wallet-example.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Configure the Save wallet processor
+
+</p>
+
+</div>
+
+## Configuration fields
+
+| Field          | Required | Description                                                                                                                           |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Wallet group   | Yes      | Choose which wallet group should store the wallet                                                                                     |
+| Wallet address | No       | The wallet address to save                                                                                                            |
+| Seed phrase    | No       | Seed phrase to save                                                                                                                   |
+| Private key    | No       | Private key to save                                                                                                                   |
+| Secret key     | No       | If you want to encrypt the address, phrase, or private key before storing them locally, use this secret key - it is known only to you |

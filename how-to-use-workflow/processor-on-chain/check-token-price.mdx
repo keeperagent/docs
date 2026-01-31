@@ -1,0 +1,64 @@
+---
+title: "Processor Check token price"
+---
+
+This processor helps you check whether a token's price meets the specified condition.
+
+Unlike the [Get token price](https://docs.keeperagent.com/how-to-use-workflow/processor-on-chain/processor-get-token-price) Processor, the `Check token price` Processor evaluates the token's price over a specified timeframe and only returns `TRUE` if every price datapoint within that period meets your chosen condition. This helps avoid sudden price spikes or drops, and prevents false signals caused by brief candle wicks.
+
+For example, if you're creating a limit order scenario to sell [SNP500](https://dexscreener.com/solana/hhc4mjnyiyhdbpugbkcnixe3kh8gd19ugzf4gudit9ma) with the condition that, over the past 3 minutes, the price of SNP500 has always been greater than $0.0001597, you can use this processor
+
+<div align="center">
+  <img
+    src="/images/check-token-price-example.png"
+    alt="Configure the Check token price Processor"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    Configure the Check token price Processor
+  </p>
+</div>
+
+The processor will record token prices based on your selected timeframe and compare them against your chosen threshold (Trigger point). To view the token price history processed by the processor, right-click on the processor and select `View token price` :
+
+<div align="center">
+  <img
+    src="/images/check-token-price-example-3.png"
+    alt="View the token price currently being processed by the processor"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    View the token price currently being processed by the processor
+  </p>
+</div>
+
+<div align="center">
+  <img
+    src="/images/check-token-price-example-5.png"
+    alt="Token price chart within the processor, along with your selected trigger threshold"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    Token price chart within the processor, along with your selected trigger
+    threshold
+  </p>
+</div>
+
+<div align="center">
+  <img
+    src="/images/check-token-price-example-7.png"
+    alt="The processor's result will be stored in a variable, with a value of either TRUE or FALSE"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    The processor's result will be stored in a variable, with a value of either
+    `TRUE` or `FALSE`
+  </p>
+</div>
+
+The configuration of this processor is similar to the [Get token price](https://docs.keeperagent.com/how-to-use-workflow/processor-on-chain/processor-get-token-price) Processor, but it also includes additional fields for checking price conditions.
+
+Configuration details:
+
+| Field name                 | Required? | Detail                                                                                                                                                                                                                                               |
+| -------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Pool interval (seconds)    | Yes       | How many seconds between each price update                                                                                                                                                                                                           |
+| Timeframe (seconds)        | Yes       | The timeframe over which you want to check the price. For example, if you select `180` seconds, the processor will evaluate all price datapoints from the past `180` seconds and only return `TRUE` if every datapoint meets the specified condition |
+| Condition                  | Yes       | Condition type: `greater than`, `less than`, `equal to`, or `not equal to`                                                                                                                                                                           |
+| Enter the comparison value | Yes       | The price threshold you want to check                                                                                                                                                                                                                |

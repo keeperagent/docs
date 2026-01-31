@@ -1,0 +1,25 @@
+---
+title: "Processor Select wallet"
+description: "Select a wallet from available wallets"
+---
+
+This processor checks whether a wallet already exists in the local database.
+
+<div align="center">
+![Configure the Check wallet processor](/images/select-wallet-example.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Configure the Check wallet processor
+
+</p>
+
+</div>
+
+## Configuration fields
+
+| Field           | Required | Description                                                                           |
+| --------------- | -------- | ------------------------------------------------------------------------------------- |
+| Search text     | Yes      | Pick the value to search for, such as the wallet address, seed phrase, or private key |
+| Wallet group    | Yes      | Select the wallet group you want to search                                            |
+| Field to search | Yes      | Do you want to search by Wallet address, Seed phrase, or Private key                  |
+| Secret key      | No       | If your wallet records are encrypted locally, provide the Secret key to search them   |

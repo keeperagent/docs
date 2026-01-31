@@ -1,0 +1,31 @@
+---
+title: "Processor Get priority fee"
+---
+
+This processor retrieves the current priority fee on Solana
+
+Configuration details:
+
+| Field name              | Required? | Detail                                                                                                                                                                                                                                   |
+| ----------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Variable to save result | Yes       | This processor outputs the chain's current average priority fee. Pick a variable name to store it. For example, `SOLANA_PRIORITY_FEE`                                                                                                    |
+| Node endpoint group     | Yes       | Select the node provider to interact with the blockchain                                                                                                                                                                                 |
+| List of Solana accounts | No        | You can leave this field empty for simplicity. If you'd like a more accurate priority fee, supply a list of Program IDs or account addresses—the processor will then average recent transactions that touched those programs or accounts |
+
+<div align="center">
+  <img
+    src="/images/get-priority-fee-example.png"
+    alt="Derive the priority fee from recent transactions touching the Raydium Concentrated Liquidity and Raydium Liquidity Pool V4 programs"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    Derive the priority fee from recent transactions touching the{" "}
+    <a href="https://solscan.io/account/CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK">
+      Raydium Concentrated Liquidity
+    </a>{" "}
+    and{" "}
+    <a href="https://solscan.io/account/675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8">
+      Raydium Liquidity Pool V4
+    </a>{" "}
+    programs
+  </p>
+</div>

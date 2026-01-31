@@ -1,0 +1,34 @@
+---
+title: "Processor Ask agent"
+---
+
+This processor allows you to interact with OpenAI's model. You can ask any question, and the model will return a text response.
+
+<div align="center">
+<img src="/images/ask-agent-image-1.png" alt="Ask agent configuration" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example: Ask OpenAI model to generate name and symbol for a token
+
+</p>
+
+</div>
+
+<div align="center">
+<img src="/images/ask-agent-image-2.png" alt="Ask agent response" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Model return token name as `Virginia Power Token`, token symbol as `VPI`
+
+</p>
+
+</div>
+
+## Configuration fields
+
+| Field                   | Required | Description                                                                                         |
+| ----------------------- | -------- | --------------------------------------------------------------------------------------------------- |
+| Variable to save result | Yes      | The response from the OpenAI model will be assigned to this variable. For example: `AGENT_RESPONSE` |
+| Prompt                  | Yes      | Prompt for the agent                                                                                |
+| Model name              | Yes      | Model name                                                                                          |
+| OpenAI API key          | Yes      | API key of OpenAI                                                                                   |

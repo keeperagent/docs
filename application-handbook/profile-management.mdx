@@ -1,0 +1,40 @@
+---
+title: "Profile management"
+---
+
+Simply put, a `Profile` is a combination of a `Wallet` and `Resource`. Each profile can include up to one wallet and multiple types of resources. Profiles serve as input data for various workflows.
+
+<Note>
+  The concept of Profile in our app is not the same as a Chrome profile.
+</Note>
+
+From your existing wallets and resources, you can create profiles by combining different wallets and resources together. As shown in the image below, you can generate profiles from the following data:
+
+- 100 _EVM wallets_
+- 20 resources consisting of _Twitter accounts_
+
+the app will automatically generate 100 profiles (the number of profiles will match the largest set among wallets and resources). If there are more wallets than resources, a single resource will be paired with multiple wallets. For example, in the scenario above, one Twitter account will be paired with five different wallets.
+
+<Tip>
+  If you want to create profiles where each EVM wallet is paired with exactly one Twitter account, you need to use equal numbers of wallets and resources. For example, 100 **EVM wallets**, 100 **Twitter accounts**.
+</Tip>
+
+<div align="center">
+![Configuration for profile groups including Wallet and Resource](/images/profile-management-image-1.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Configuration for profile groups including Wallet and Resource
+
+</p>
+
+</div>
+
+<div align="center">
+![Example profiles including Wallet, Twitter](/images/profile-management-image-2.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example profiles including Wallet, Twitter
+
+</p>
+
+</div>

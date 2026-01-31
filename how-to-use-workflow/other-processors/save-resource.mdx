@@ -1,0 +1,23 @@
+---
+title: "Processor Save resource"
+description: "Save a resource for later use"
+---
+
+This processor creates a new Resource inside the Resource group.
+
+<div align="center">
+![Configure the Save resource processor](/images/save-resource-example.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Configure the Save resource processor
+
+</p>
+
+</div>
+
+## Configuration fields
+
+| Field          | Required | Description                                                                                                                                                                                 |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Resource group | Yes      | Pick the Resource group where you want to store the resource. For example, if your Twitter asset group defines Username and Password columns, this processor lets you populate those values |
+| Secret key     | No       | If you plan to encrypt resource details before saving them on local database, use this secret key - only you know it                                                                        |

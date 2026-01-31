@@ -1,0 +1,320 @@
+/* Increase sidebar font size */
+#sidebar,
+#sidebar-content,
+.sidebar-group,
+.sidebar-group a,
+.sidebar-group button,
+.nav-anchor,
+.nav-dropdown-item {
+  font-size: 0.9375rem !important; /* 15px - increased from default ~13px */
+  line-height: 1.5 !important;
+}
+
+/* Increase sidebar group headings */
+.sidebar-group-header,
+.sidebar-title {
+  font-size: 0.875rem !important; /* 14px for group headings */
+  font-weight: 600 !important;
+}
+
+/* Increase navigation items font size */
+#navigation-items a,
+#navigation-items button {
+  font-size: 0.9375rem !important;
+}
+
+/* Thinner sidebar border */
+#sidebar {
+  border-right-width: 1px !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Dark mode sidebar border */
+.dark #sidebar {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Custom scrollbar - thinner and nicer */
+#sidebar::-webkit-scrollbar,
+#sidebar-content::-webkit-scrollbar {
+  width: 4px !important;
+}
+
+#sidebar::-webkit-scrollbar-track,
+#sidebar-content::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+#sidebar::-webkit-scrollbar-thumb,
+#sidebar-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15) !important;
+  border-radius: 4px !important;
+}
+
+#sidebar::-webkit-scrollbar-thumb:hover,
+#sidebar-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Dark mode scrollbar */
+.dark #sidebar::-webkit-scrollbar-thumb,
+.dark #sidebar-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.dark #sidebar::-webkit-scrollbar-thumb:hover,
+.dark #sidebar-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Top navigation bar background colors - Light mode */
+#navbar,
+nav.sticky.top-0,
+header.sticky.top-0,
+[class*="TopNav"],
+[class*="topnav"] {
+  background-color: #fafafb !important; /* Light mode: subtle cool gray */
+}
+
+/* Dark mode page background - warm dark like Anthropic docs */
+.dark,
+.dark body,
+.dark html,
+.dark #__next,
+.dark main,
+.dark [class*="Layout"],
+.dark [class*="Content"],
+.dark #sidebar,
+.dark #navbar,
+.dark nav.sticky.top-0,
+.dark header.sticky.top-0,
+.dark [class*="TopNav"],
+.dark [class*="topnav"] {
+  background-color: #1a1915 !important; /* Warm dark brown/olive like Anthropic docs */
+}
+
+/* Remove all shadows and overlays from sidebar */
+#sidebar,
+#sidebar *,
+#sidebar-content,
+#sidebar-content *,
+[class*="Sidebar"],
+[class*="Sidebar"] *,
+[class*="sidebar"],
+[class*="sidebar"] *,
+[class*="Search"],
+[class*="search"],
+[class*="fade"],
+[class*="Fade"],
+[class*="shadow"],
+[class*="Shadow"],
+[class*="overlay"],
+[class*="Overlay"],
+[class*="gradient"],
+[class*="Gradient"],
+[class*="mask"],
+[class*="Mask"] {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+/* Remove pseudo-element shadows/gradients everywhere in sidebar */
+#sidebar::before,
+#sidebar::after,
+#sidebar *::before,
+#sidebar *::after,
+[class*="Sidebar"]::before,
+[class*="Sidebar"]::after,
+[class*="Sidebar"] *::before,
+[class*="Sidebar"] *::after,
+[class*="sidebar"]::before,
+[class*="sidebar"]::after,
+[class*="sidebar"] *::before,
+[class*="sidebar"] *::after,
+#navigation-items::before,
+#navigation-items::after,
+nav::before,
+nav::after {
+  box-shadow: none !important;
+  background: transparent !important;
+  background-image: none !important;
+  opacity: 0 !important;
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Remove shadow from header/navbar/logo area */
+header,
+header *,
+#navbar,
+#navbar *,
+[class*="Header"],
+[class*="Header"] *,
+[class*="header"],
+[class*="header"] *,
+[class*="Logo"],
+[class*="logo"],
+[class*="Nav"],
+[class*="nav"] {
+  box-shadow: none !important;
+}
+
+header::before,
+header::after,
+header *::before,
+header *::after,
+#navbar::before,
+#navbar::after,
+#navbar *::before,
+#navbar *::after,
+[class*="Header"]::before,
+[class*="Header"]::after,
+[class*="Header"] *::before,
+[class*="Header"] *::after,
+[class*="Logo"]::before,
+[class*="Logo"]::after,
+[class*="logo"]::before,
+[class*="logo"]::after {
+  box-shadow: none !important;
+  background: transparent !important;
+  background-image: none !important;
+  opacity: 0 !important;
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Remove gradient overlay at top of sidebar */
+.sticky.top-0.h-8,
+.bg-gradient-to-b,
+[class*="bg-gradient-to-b"] {
+  display: none !important;
+}
+
+/* Add spacing to top of sidebar content to compensate for hidden gradient */
+#sidebar-content,
+[class*="sidebar-content"],
+[class*="SidebarContent"] {
+  padding-top: 1.5rem !important;
+}
+
+/* Remove left/right padding and margins - maximize content space */
+body,
+html,
+#__next,
+main,
+[class*="Layout"],
+[class*="Container"],
+[class*="container"],
+[class*="Wrapper"],
+[class*="wrapper"] {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: 100% !important;
+}
+
+/* Sidebar */
+#sidebar,
+[class*="Sidebar"]:not([class*="sidebar-content"]) {
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+}
+
+/* Main content and heading - narrower for cleaner look */
+article,
+[class*="prose"],
+.prose {
+  max-width: 800px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  font-size: 1.05rem !important;
+  line-height: 1.75 !important;
+}
+
+/* Table content - larger font */
+table,
+table td,
+table th,
+[class*="prose"] table,
+.prose table {
+  font-size: 1rem !important;
+}
+
+/* Page heading wrapper - align with main content */
+.space-y-2\.5,
+[class*="space-y-2"] {
+  max-width: 800px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Don't override internal layout of heading children */
+.space-y-2\.5 > *,
+[class*="space-y-2"] > * {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: 100% !important;
+}
+
+/* Page description - smaller and closer to title */
+article > p:first-of-type,
+[class*="prose"] > p:first-of-type,
+.prose > p:first-child,
+[class*="description"],
+.lead {
+  font-size: 0.95rem !important;
+  margin-top: -2rem !important;
+  margin-bottom: 3rem !important;
+  color: rgba(156, 163, 175, 1) !important;
+}
+
+/* Header - remove max-width and centering (exclude search modal) */
+header [class*="max-w-8xl"] {
+  max-width: 100% !important;
+}
+
+header [class*="mx-auto"] {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Header - padding */
+[class*="lg:px-12"],
+[class*="px-4"] {
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+/* Force sidebar to the far left */
+#sidebar,
+[class*="Sidebar"],
+aside {
+  left: 0 !important;
+  margin-left: 0 !important;
+}
+
+/* Force top navbar/header to the far left */
+#navbar,
+header,
+nav.sticky.top-0,
+[class*="TopNav"],
+[class*="topnav"],
+[class*="Navbar"],
+[class*="Header"] {
+  left: 0 !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* Remove any centering wrappers in header */
+header > div,
+#navbar > div,
+nav > div {
+  margin-left: 0 !important;
+  max-width: none !important;
+}
+

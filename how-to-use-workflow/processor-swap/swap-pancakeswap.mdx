@@ -1,0 +1,75 @@
+---
+title: "Processor Swap Pancakeswap"
+---
+
+This Processor enables token swaps from a Pancakeswap pool. The swap is executed via Pancakeswap's [Universal Router](https://developer.pancakeswap.finance/contracts/universal-router/addresses) contract, the same contract used when you swap tokens through the [Pancakeswap](https://pancakeswap.finance/swap) interface.
+
+Supported pool types for swapping:
+
+- Pancakeswap V2
+- Pancakeswap V3
+
+Libraries used in the swap Processor code:
+
+| Library name                                                                                         | Version |
+| ---------------------------------------------------------------------------------------------------- | ------- |
+| [@pancakeswap/sdk](https://www.npmjs.com/package/@pancakeswap/sdk)                                   | 5.8.8   |
+| [@pancakeswap/v3-sdk](https://www.npmjs.com/package/@pancakeswap/v3-sdk)                             | 3.8.11  |
+| [@pancakeswap/smart-router](https://www.npmjs.com/package/@pancakeswap/smart-router)                 | 6.1.0   |
+| [@pancakeswap/universal-router-sdk](https://www.npmjs.com/package/@pancakeswap/universal-router-sdk) | 1.0.31  |
+| [@pancakeswap/permit2-sdk](https://www.npmjs.com/package/@pancakeswap/permit2-sdk)                   | 1.0.10  |
+| [ethers](https://www.npmjs.com/package/ethers)                                                       | 5.7.2   |
+
+<Info>
+  Note: This Processor only swaps within a single pool and does not use an aggregator to swap across multiple pools. Therefore, you must configure the pool address for the swap.
+</Info>
+
+<div align="center">
+<img src="/images/swap-pancakeswap-example.png" alt="Example: Swapping FLOKI tokens to WBNB" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example: Swapping FLOKI tokens to WBNB
+
+</p>
+
+</div>
+
+In the example above, the configuration swaps FLOKI tokens to BNB using the [FLOKI/WBNB](https://dexscreener.com/bsc/0x231d9e7181e8479a8b40930961e93e7ed798542c) pool on the BNB network.
+
+## Configuration fields
+
+| Field name                                | Required? | Detail                                                                                                                                                                                                                                                                                                                                                                           |
+| ----------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Variable to save result                   | Yes       | This Processor will output the transaction hash of the swap. You can choose a variable name to store the transaction hash. For example: `TX_HASH_SWAP_TOKEN_EVM`                                                                                                                                                                                                                 |
+| Private key                               | Yes       | This is the private key of the wallet performing the transaction. Each Profile has a default variable for storing the private key, so you can use the default variable `WALLET_PRIVATE_KEY`                                                                                                                                                                                      |
+| Chain                                     | Yes       | The blockchain network where you want to perform the swap                                                                                                                                                                                                                                                                                                                        |
+| Node endpoint group                       | Yes       | Select the node provider to interact with the blockchain                                                                                                                                                                                                                                                                                                                         |
+| Pool address                              | Yes       | The address of the pool you want to swap in                                                                                                                                                                                                                                                                                                                                      |
+| Input token address                       | Yes       | A pool contains two tokens. Here, you enter the address of the token you want to swap from. For example, if you want to swap FLOKI for WBNB (sell FLOKI), you should enter the address of the FLOKI token in this field                                                                                                                                                          |
+| Output token address                      | Yes       | The address of the token you want to receive after the swap. For example, if you want to swap FLOKI for WBNB (sell FLOKI), enter the address of the WBNB token here. If you prefer to receive the native token instead of WBNB, you can select `Receive native token after swap (if the output token is a wrapped token)`. This option applies only to pools with wrapped tokens |
+| Input token amount                        | Yes       | Enter the amount of tokens you want to sell. For example, if you wish to sell 1,000 FLOKI for BNB, enter `1000`                                                                                                                                                                                                                                                                  |
+| Slippage tolerance (%)                    | Yes       | Maximum slippage for swaps. For pools with low price volatility, you should set this value low (e.g., 0.3%, 0.5%). For pools with high price volatility over short periods, set a higher value to increase the likelihood of a successful swap                                                                                                                                   |
+| Deadline (second)                         | Yes       | Maximum time allowed to complete the swap transaction. For example, if you enter `10`, the transaction will be canceled (reverted) if the swap is not completed within 10 seconds.                                                                                                                                                                                               |
+| Max price impact (%)                      | Yes       | Maximum price impact for swaps. For pools with high liquidity, you should set this value low (e.g., 0.5%, 1%). For pools with low liquidity, you may choose a higher value                                                                                                                                                                                                       |
+| Gas limit                                 | No        | Gas limit for executing the transaction                                                                                                                                                                                                                                                                                                                                          |
+| Gas price (Gwei)                          | No        | Gas price for executing the transaction. If you do not specify a value, the gas price will default to the current average on the chain. For best results, it is recommended to set the gas price to increase the likelihood of a successful swap transaction                                                                                                                     |
+| Total number of transaction               | Yes       | The minimum value is 1. If you enter a value greater than 1, such as `10`, this Processor will broadcast 10 swap transactions simultaneously, each with a different `nonce`, to increase the likelihood that multiple transactions are mined in the same block                                                                                                                   |
+| Wait for the transaction to be confirmed? | No        | If you enable this option, the Processor will wait for the swap transaction to be confirmed before proceeding to the next Processor. If you leave it unchecked, the Processor will broadcast the swap transaction without waiting for confirmation and immediately move on to the next Processor                                                                                 |
+
+## How to choose Gas Limit and Gas Price
+
+If you want your transaction to be mined faster by competing on gas, or if the Processor cannot estimate the Gas Limit for certain transactions, you can manually enter the Gas Limit and Gas Price for the Processor.
+
+For example, if you want to swap tokens in the [FLOKI/WBNB](https://dexscreener.com/bsc/0x231d9e7181e8479a8b40930961e93e7ed798542c) pool, review several recent transactions to see their Gas Limit and Gas Price. This will help you select suitable values for the Processor.
+
+Using the following transaction as a reference: https://bscscan.com/tx/0xf440fc6449d5363ea0e948b4956347a92023bc8ec3207230748a7d4e8a510509, you can set the `Gas Price (Gwei)` to 1 Gwei and the `Gas limit` to 235798 for the Processor.
+
+<div align="center">
+<img src="/images/bnb_gas_price.png" alt="Example of how to choose values for Gas Price (Gwei) and Gas Limit" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example of how to choose values for Gas Price (Gwei) and Gas Limit
+
+</p>
+
+</div>

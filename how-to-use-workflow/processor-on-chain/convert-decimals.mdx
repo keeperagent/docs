@@ -1,0 +1,29 @@
+---
+title: "Processor Convert decimals"
+---
+
+This Processor converts raw amounts to human-readable values by dividing by token decimals. Supports EVM, Solana, Aptos, and Sui chains.
+
+Example: with a raw amount of `10000000000000000000` and token decimals of `10^18`, this Processor outputs 10000000000000000000 / 10^18 = `10`. Enter the token address so the Processor can query the blockchain node for the decimals value.
+
+<div align="center">
+  <img
+    src="/images/convert-decimals-example.png"
+    alt="Example: Convert using decimals for DEGEN token on Base"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    Example: Convert using decimals for
+    [DEGEN](https://basescan.org/address/0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed)
+    token on Base
+  </p>
+</div>
+
+Configuration details:
+
+| Field name              | Required? | Detail                                                                                                                            |
+| ----------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Variable to save result | Yes       | This Processor outputs the amount converted by decimals. Choose a variable name to store the result.<br />Example: `TOKEN_AMOUNT` |
+| Token raw amount        | Yes       | Original token amount, not divided by decimals                                                                                    |
+| Blockchain type         | Yes       | arget chain for Processor execution                                                                                               |
+| Node endpoint group     | Yes       | Select the node provider to interact with the blockchain                                                                          |
+| Token address           | Yes       | Token address. If you select `Native token`, you can skip this field.                                                             |

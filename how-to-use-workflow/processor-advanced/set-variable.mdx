@@ -1,0 +1,46 @@
+---
+title: "Processor Set variable"
+description: "Assign values to variables"
+---
+
+This processor assigns a value to a variable and creates the variable if it doesn't already exist.
+
+## Basic variable assignment
+
+Example set a value for the `WALLET_ADDRESS` variable
+
+<div align="center">
+<img src="/images/set-variable-example.png" alt="Configuration details" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Configuration details
+
+</p>
+
+</div>
+
+## Configuration fields
+
+| Field                   | Required | Description                     |
+| ----------------------- | -------- | ------------------------------- |
+| Variable to save result | Yes      | Variable name                   |
+| Value                   | Yes      | Value to assign to the variable |
+
+## Advanced variable assignment
+
+Assign a variable's value based on specific conditions
+
+<div align="center">
+<img src="/images/set-variable-example-3.png" alt="Example assign variables based on specific conditions" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example assign variables based on specific conditions
+
+</p>
+
+</div>
+
+In that example, if:
+
+- if `TOKEN_NAME` equals USDT, then set `SWAP_AMOUNT` to 100.
+- if `TOKEN_NAME` equals WETH, set `SWAP_AMOUNT` to 0.1.

@@ -1,0 +1,43 @@
+---
+title: "Processor Random value"
+---
+
+# Processor Random value
+
+This processor picks a random value from a given set or generates a random number within a defined range.
+
+### Pick a random number within a defined range
+
+This processor lends itself to many uses, here are a few examples:
+
+- When building a token swap bot that runs across multiple wallets, you can use this processor to randomize the swap amounts so every transaction isn't identical.
+- When executing airdrop or retroactive strategies, use this processor to add variability so wallets don't all swap or bridge the exact same token amount. It injects randomness directly between transactions.
+
+## Configuration fields
+
+| Field name              | Required? | Detail                                                                                                                                                                                                             |
+| ----------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Variable to save result | Yes       | The processor outputs a random number, pick a variable name to store it. For example, `RANDOM_VALUE`                                                                                                               |
+| Minimum value           | Yes       | Smallest possible output value                                                                                                                                                                                     |
+| Maximum value           | Yes       | Largest possible result value                                                                                                                                                                                      |
+| Decimal part            | Yes       | Number of decimal places. For example, when selecting a random value between 10 and 50 with one decimal place, possible results include 10.1, 10.3, or 15.0. With zero decimal places, you might get 10, 25, or 50 |
+
+### Pick a value from a predefined set
+
+The values in this set can be numbers or strings, for example:
+
+- (`10`, `20`, `30`)
+- (`USD`, `USDT`, `DAI`)
+- (`0xaf88d065e77c8cc2239327c5edb3a432268e5831`, `0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9`, `0xda10009cbd5d07dd0cecc66161fc93d7c9000da1`)
+
+The processor randomly returns one value from the set.
+
+<div align="center">
+<img src="/images/random-value-example-3.png" alt="Example randomly select a token name" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example randomly select a token name
+
+</p>
+
+</div>

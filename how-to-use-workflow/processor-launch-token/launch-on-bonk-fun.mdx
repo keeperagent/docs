@@ -1,0 +1,38 @@
+---
+title: "Processor Launch on bonk.fun"
+---
+
+<div align="center">
+<img src="/images/launch-on-bonk-fun-example.png" alt="Example: Launch token with name, symbol, and image" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example: Launch token with name, symbol, and image
+
+</p>
+
+</div>
+
+This processor enables you to launch tokens on [bonk.fun](https://bonk.fun/) in just a few seconds. Simply enter the token name, symbol, and image URL, and your token will be launched immediately. Our bot supports creators purchasing tokens within the same transaction hash as the token launch transaction. When launching tokens through this processor, token address will end with ...`bonk`
+
+This processor can be combined with other processors such as [Agent](https://docs.keeperagent.com/how-to-use-workflow/processor-agent) processor to build workflows. For example: use the OpenAI model to generate the token name and symbol, then create the token logo using OpenAI's image generation model, and finally use this data to launch the token.
+
+## Configuration fields
+
+| Field                              | Required | Description                                                                                   |
+| ---------------------------------- | -------- | --------------------------------------------------------------------------------------------- |
+| Variable to save transaction hash  | Yes      | Variable to store the transaction hash                                                        |
+| Variable to save token address     | Yes      | Variable to store the token address                                                           |
+| Private key                        | Yes      | The private key of the wallet to use for launching the token. Default: `{WALLET_PRIVATE_KEY}` |
+| Node endpoint group                | Yes      | Select the node endpoint group to use for this transaction                                    |
+| Launch currency                    | Yes      | Select the currency to use for launching (SOL or USD1)                                        |
+| Token name                         | Yes      | The name of the token                                                                         |
+| Token symbol                       | Yes      | The symbol of the token                                                                       |
+| Logo URL                           | Yes      | URL of the token logo (supports `https://` or local file paths)                               |
+| Description                        | No       | Description of the token                                                                      |
+| Twitter                            | No       | Twitter link for the token                                                                    |
+| Telegram                           | No       | Telegram link for the token                                                                   |
+| Website                            | No       | Website link for the token                                                                    |
+| Initial buy amount (SOL)           | No       | Amount of SOL to buy the token with in the same transaction                                   |
+| Slippage                           | No       | Slippage tolerance percentage                                                                 |
+| Compute unit limit                 | No       | Maximum compute units for the transaction (default: 250000)                                   |
+| Compute unit price (microlamports) | No       | Price per compute unit in microlamports (default: 100)                                        |

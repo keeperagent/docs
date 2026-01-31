@@ -1,0 +1,44 @@
+---
+title: "Security level"
+---
+
+As a blockchain-based application, protect your data is always our highest priority. That's why:
+
+1. All your data is stored locally on your computer and never sent to our servers, ensuring your privacy and security at all times.
+2. Unlike other applications, we do not offer data synchronization features with cloud services such as Google Drive or Amazon S3. All of your data remains securely stored on your own computer.
+3. We minimize all communication between our app and the external internet environment. Therefore:
+   - Almost all features that require interaction with our server, such as account registration, subscription management, updating personal information, viewing payment history, and marketplace feature, are available exclusively on our web platform at [keeperagent.com](http://keeperagent.com/).
+   - All features of the desktop application remain fully functional even when your Wi-Fi is turned off.
+   - However, since this is a paid application, we need to verify that your account has an active subscription before allowing you to log in. **Once every hour**, our desktop app will send **a single request** to our server, including an `access_token` linked to your email, to confirm your subscription status via the API endpoint: https://api.keeperagent.com/graphql. This is the only request the app makes to our server.
+
+**Data encryption**
+
+To use features related to wallet extensions such as Metamask, Rabby, Phantom, Martian, or any functionality that requires direct interaction with a blockchain node, you will need your seed phrase, private key, and wallet address. You can securely store this sensitive information in your local database by using a `Secret key` (known only to you). Think of this Secret key as a password, similar to the one you use to [unlock your Metamask](https://www.quora.com/How-does-MetaMask-store-its-users-private-keys-Does-MetaMask-store-its-users-private-keys-locally-in-their-browser-or-on-its-servers) wallet. This Secret key is _never stored anywhere, not even in your local database_. Each time you want to view your wallet information, you will be asked to re-enter your Secret key.
+
+All wallet data, including your seed phrase, private key, and wallet address, is encrypted using [AES-256](https://vi.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the most secure encryption algorithms available today. As a result, even if someone were to steal the local database from your computer, they would not be able to access your seed phrase or private key information.
+
+For example, your wallet information will be encrypted before being stored on your computer. To view your wallet details, you'll need to enter your **Secret key**.
+
+<div align="center">
+![Your wallet information is securely encrypted.](/images/security-level-encrypted.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Your wallet information is securely encrypted.
+
+</p>
+
+</div>
+
+<div align="center">
+<img
+  src="/images/security-level-secret-key.png"
+  alt="You must enter your Secret key to view wallet information."
+  className="mx-auto"
+/>
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+You must enter your Secret key to view wallet information.
+
+</p>
+
+</div>

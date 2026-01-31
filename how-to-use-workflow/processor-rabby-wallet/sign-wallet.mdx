@@ -1,0 +1,134 @@
+---
+title: "Processor Sign wallet"
+description: "Sign transactions in Rabby wallet"
+---
+
+This processor handles the `Sign` and `Confirm` clicks inside Rabby for you. Before those clicks, you can adjust the gas limit and gas price as needed, the processor performs every action automatically according to your configuration.
+
+<div align="center">
+<img src="/images/rabby-sign-wallet-example.png" alt="Click Sign in Rabby wallet" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Click `Sign` in Rabby wallet
+
+</p>
+
+</div>
+
+After Sign is clicked, the Create button appears and the processor clicks it automatically.
+
+<div align="center">
+<img src="/images/rabby-sign-wallet-example-3.png" alt="The processor then clicks Create" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+The processor then clicks `Confirm`
+
+</p>
+
+</div>
+
+<div align="center">
+<img src="/images/rabby-sign-wallet-example-5.png" alt="Configuration for the Sign wallet processor." style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Configuration for the Sign wallet processor.
+
+</p>
+
+</div>
+
+## Configuration fields
+
+| Field                                 | Required | Description                                                                                                                                                                                                                               |
+| ------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Customize Gas limit?                  | No       | Set a custom gas limit for the transaction                                                                                                                                                                                                |
+| Customize Gas price?                  | No       | Set a custom gas price for the transaction                                                                                                                                                                                                |
+| Skip warnings and choose "Ignore all" | No       | For contracts you haven't interacted with, new or uncommon ones Rabby shows a warning with an `Ignore all` option. Enable that setting and the processor will automatically click `Ignore all` so it can continue signing the transaction |
+
+## Customize Gas limit
+
+To customize the transaction's gas limit, enable the Customize gas limit? option, then enter your desired value
+
+<div align="center">
+<img src="/images/rabby-sign-wallet-example-7.png" alt="Customize Gas limit" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Customize Gas limit
+
+</p>
+
+</div>
+
+Adjust the gas limit under Advanced Settings
+
+<div align="center">
+<img src="/images/rabby-sign-wallet-example-9.png" alt="Adjust the gas limit under Advanced Settings" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Adjust the gas limit under Advanced Settings
+
+</p>
+
+</div>
+
+<div align="center">
+<img src="/images/rabby-sign-wallet-example-11.png" alt="Adjust the gas limit" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Adjust the gas limit
+
+</p>
+
+</div>
+
+When the Advanced Settings popup appears, the processor applies your gas-limit settings, then clicks Confirm.
+
+## Customize Gas price
+
+To customize the transaction's gas price, enable Customize gas price? . You can then choose among four modes: Normal, Fast, Instant, or Custom:
+
+<div align="center">
+<img src="/images/rabby-sign-wallet-example-13.png" alt="Customize Gas price" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Customize Gas price
+
+</p>
+
+</div>
+
+Gas price options in Rabby
+
+<div align="center">
+<img src="/images/rabby-sign-wallet-example-15.png" alt="Gas price options in Rabby" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Gas price options in Rabby
+
+</p>
+
+</div>
+
+Adjust gas price
+
+<div align="center">
+<img src="/images/rabby-sign-wallet-example-17.png" alt="Enter the gas price in gwei" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Enter the gas price in gwei
+
+</p>
+
+</div>
+
+If you select the Custom gas mode, the processor opens the popup, applies your configured gas price, and clicks Confirm then proceeds with Sign and Create:
+
+<div align="center">
+<img src="/images/rabby-sign-wallet-example-19.png" alt="Adjust Gas price" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Adjust Gas price
+
+</p>
+
+</div>

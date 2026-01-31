@@ -1,122 +1,283 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "KeeperAgent",
+  "css": "/style.css",
+  "description": "Keeper agent is a powerful AI workflow automation tool for DeFi. Manage thousands of wallets, execute on-chain actions, automate token launches, trading bots, and browser automation with drag-and-drop simplicity.",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#6366F1",
+    "light": "#818CF8",
+    "dark": "#4F46E5"
+  },
+  "fonts": {
+    "family": "Inter, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif",
+    "heading": {
+      "family": "Lora, Georgia, Times New Roman, Times, serif",
+      "weight": 500
+    }
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
+    "groups": [
       {
-        "tab": "Guides",
-        "groups": [
+        "group": "ABOUT US",
+        "pages": [
+          "index",
+          "about-us/security-level",
           {
-            "group": "Getting started",
+            "group": "Use Cases",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "about-us/use-cases/overview",
+              "about-us/use-cases/token-launch",
+              "about-us/use-cases/trading-bot",
+              "about-us/use-cases/ai-agent-for-trading",
+              "about-us/use-cases/monitor-liquidity-position",
+              "about-us/use-cases/transaction-monitoring-bot",
+              "about-us/use-cases/token-price-alert",
+              "about-us/use-cases/create-thousands-of-wallets",
+              "about-us/use-cases/manage-thousands-of-multichain-wallets",
+              "about-us/use-cases/airdrop-farming"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
-        "groups": [
+        "group": "APPLICATION HANDBOOK",
+        "pages": [
+          "application-handbook/overview",
+          "application-handbook/installation",
+          "application-handbook/trading-ai-gent",
           {
-            "group": "API documentation",
+            "group": "Wallet management",
             "pages": [
-              "api-reference/introduction"
+              "application-handbook/wallet-management/overview",
+              "application-handbook/wallet-management/how-to-encrypt-a-wallet",
+              "application-handbook/wallet-management/how-to-backup-your-wallet"
+            ]
+          },
+          "application-handbook/resource-management",
+          "application-handbook/profile-management",
+          "application-handbook/workflow-management",
+          "application-handbook/campaign-management",
+          "application-handbook/proxy-management",
+          "application-handbook/node-provider-management",
+          "application-handbook/extension-management",
+          "application-handbook/schedule-management",
+          "application-handbook/other-features"
+        ]
+      },
+      {
+        "group": "HOW TO USE WORKFLOW",
+        "pages": [
+          "how-to-use-workflow/overview",
+          {
+            "group": "Processor structure",
+            "pages": [
+              "how-to-use-workflow/processor-structure/overview",
+              "how-to-use-workflow/processor-structure/general-settings-section",
+              "how-to-use-workflow/processor-structure/setting-for-skip",
+              "how-to-use-workflow/processor-structure/detail-setting",
+              "how-to-use-workflow/processor-structure/how-to-create-a-new-processor"
+            ]
+          },
+          "how-to-use-workflow/what-is-a-variable",
+          "how-to-use-workflow/what-is-queue",
+          {
+            "group": "Token launch processors",
+            "pages": [
+              "how-to-use-workflow/processor-launch-token/launch-on-pump-fun",
+              "how-to-use-workflow/processor-launch-token/launch-on-bonk-fun"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "AI Agent processors",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "how-to-use-workflow/processor-agent/ask-agent",
+              "how-to-use-workflow/processor-agent/generate-image"
+            ]
+          },
+          {
+            "group": "Swap processors",
+            "pages": [
+              "how-to-use-workflow/processor-swap/overview",
+              "how-to-use-workflow/processor-swap/swap-jupiter",
+              "how-to-use-workflow/processor-swap/swap-kyberswap",
+              "how-to-use-workflow/processor-swap/swap-uniswap",
+              "how-to-use-workflow/processor-swap/swap-pancakeswap",
+              "how-to-use-workflow/processor-swap/swap-raydium",
+              "how-to-use-workflow/processor-swap/swap-cetus"
+            ]
+          },
+          {
+            "group": "On-chain processors",
+            "pages": [
+              "how-to-use-workflow/processor-on-chain/overview",
+              "how-to-use-workflow/processor-on-chain/get-wallet-balance",
+              "how-to-use-workflow/processor-on-chain/get-token-price",
+              "how-to-use-workflow/processor-on-chain/check-token-price",
+              "how-to-use-workflow/processor-on-chain/check-marketcap",
+              "how-to-use-workflow/processor-on-chain/transfer-token",
+              "how-to-use-workflow/processor-on-chain/approve-revoke-token",
+              "how-to-use-workflow/processor-on-chain/contract-sniper",
+              "how-to-use-workflow/processor-on-chain/read-contract",
+              "how-to-use-workflow/processor-on-chain/write-to-contract",
+              "how-to-use-workflow/processor-on-chain/convert-decimals",
+              "how-to-use-workflow/processor-on-chain/select-token",
+              "how-to-use-workflow/processor-on-chain/select-chain",
+              "how-to-use-workflow/processor-on-chain/get-gas-price",
+              "how-to-use-workflow/processor-on-chain/get-priority-fee",
+              "how-to-use-workflow/processor-on-chain/vanity-address"
+            ]
+          },
+          {
+            "group": "Browser processors",
+            "pages": [
+              "how-to-use-workflow/processor-browser/overview",
+              "how-to-use-workflow/processor-browser/open-url",
+              "how-to-use-workflow/processor-browser/select-window",
+              "how-to-use-workflow/processor-browser/type-text",
+              "how-to-use-workflow/processor-browser/click",
+              "how-to-use-workflow/processor-browser/open-new-tab",
+              "how-to-use-workflow/processor-browser/select-tab",
+              "how-to-use-workflow/processor-browser/close-tab",
+              "how-to-use-workflow/processor-browser/back",
+              "how-to-use-workflow/processor-browser/reload-page",
+              "how-to-use-workflow/processor-browser/scroll",
+              "how-to-use-workflow/processor-browser/crawl-text",
+              "how-to-use-workflow/processor-browser/element-exist"
+            ]
+          },
+          {
+            "group": "Advanced processors",
+            "pages": [
+              "how-to-use-workflow/processor-advanced/overview",
+              "how-to-use-workflow/processor-advanced/save-log",
+              "how-to-use-workflow/processor-advanced/check-condition",
+              "how-to-use-workflow/processor-advanced/random-value",
+              "how-to-use-workflow/processor-advanced/random-on-off",
+              "how-to-use-workflow/processor-advanced/set-variable",
+              "how-to-use-workflow/processor-advanced/calculate",
+              "how-to-use-workflow/processor-advanced/request-api",
+              "how-to-use-workflow/processor-advanced/execute-code"
+            ]
+          },
+          {
+            "group": "Rabby wallet processors",
+            "pages": [
+              "how-to-use-workflow/processor-rabby-wallet/overview",
+              "how-to-use-workflow/processor-rabby-wallet/import-wallet",
+              "how-to-use-workflow/processor-rabby-wallet/unlock-wallet",
+              "how-to-use-workflow/processor-rabby-wallet/connect-wallet",
+              "how-to-use-workflow/processor-rabby-wallet/click-cancel",
+              "how-to-use-workflow/processor-rabby-wallet/sign-wallet",
+              "how-to-use-workflow/processor-rabby-wallet/add-network"
+            ]
+          },
+          {
+            "group": "Phantom wallet processors",
+            "pages": [
+              "how-to-use-workflow/processor-phantom-wallet/overview",
+              "how-to-use-workflow/processor-phantom-wallet/import-wallet",
+              "how-to-use-workflow/processor-phantom-wallet/unlock-wallet",
+              "how-to-use-workflow/processor-phantom-wallet/connect-wallet",
+              "how-to-use-workflow/processor-phantom-wallet/click-confirm"
+            ]
+          },
+          {
+            "group": "Martian wallet processors",
+            "pages": [
+              "how-to-use-workflow/processor-martian-wallet/overview",
+              "how-to-use-workflow/processor-martian-wallet/import-wallet",
+              "how-to-use-workflow/processor-martian-wallet/unlock-wallet",
+              "how-to-use-workflow/processor-martian-wallet/click-approve",
+              "how-to-use-workflow/processor-martian-wallet/click-switch"
+            ]
+          },
+          {
+            "group": "Metamask wallet processors",
+            "pages": [
+              "how-to-use-workflow/processor-metamask-wallet/overview",
+              "how-to-use-workflow/processor-metamask-wallet/import-wallet",
+              "how-to-use-workflow/processor-metamask-wallet/unlock-wallet",
+              "how-to-use-workflow/processor-metamask-wallet/connect-wallet",
+              "how-to-use-workflow/processor-metamask-wallet/click-approve",
+              "how-to-use-workflow/processor-metamask-wallet/click-confirm",
+              "how-to-use-workflow/processor-metamask-wallet/click-cancel"
+            ]
+          },
+          {
+            "group": "Twitter processors",
+            "pages": [
+              "how-to-use-workflow/processor-twitter/overview",
+              "how-to-use-workflow/processor-twitter/login-twitter",
+              "how-to-use-workflow/processor-twitter/follow-account",
+              "how-to-use-workflow/processor-twitter/like-tweet",
+              "how-to-use-workflow/processor-twitter/retweet",
+              "how-to-use-workflow/processor-twitter/comment"
+            ]
+          },
+          {
+            "group": "Telegram processors",
+            "pages": [
+              "how-to-use-workflow/processor-telegram/overview",
+              "how-to-use-workflow/processor-telegram/bot-message",
+              "how-to-use-workflow/processor-telegram/snipe-telegram"
+            ]
+          },
+          {
+            "group": "Other processors",
+            "pages": [
+              "how-to-use-workflow/other-processors/overview",
+              "how-to-use-workflow/other-processors/update-profile",
+              "how-to-use-workflow/other-processors/on-off-profile",
+              "how-to-use-workflow/other-processors/create-profile",
+              "how-to-use-workflow/other-processors/loop",
+              "how-to-use-workflow/other-processors/solve-captcha",
+              "how-to-use-workflow/other-processors/save-wallet",
+              "how-to-use-workflow/other-processors/select-wallet",
+              "how-to-use-workflow/other-processors/save-resource",
+              "how-to-use-workflow/other-processors/select-resource",
+              "how-to-use-workflow/other-processors/stop-workflow",
+              "how-to-use-workflow/other-processors/note"
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/logo-with-text-light.svg",
+    "dark": "/logo/logo-with-text-dark.svg"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Get Started",
+      "href": "https://keeperagent.com"
     }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/keeperagentapp",
+      "github": "https://github.com/keeperagent"
     }
+  },
+  "seo": {
+    "metatags": {
+      "title": "Keeper Agent - AI Workflow Automation for DeFi",
+      "description": "Powerful AI workflow automation tool for DeFi. Manage thousands of wallets, execute on-chain actions, automate token launches, trading bots, and browser automation.",
+      "keywords": "keeper agent, defi automation, workflow automation, wallet management, token launch, trading bot, blockchain automation, multi-chain wallets, browser automation, AI agent",
+      "og:title": "Keeper Agent - AI Workflow Automation for DeFi",
+      "og:description": "Powerful AI workflow automation tool for DeFi. Manage thousands of wallets, execute on-chain actions, automate token launches, trading bots, and browser automation.",
+      "og:type": "website",
+      "og:image": "/images/social-seo-image.png",
+      "og:image:width": "1200",
+      "og:image:height": "630",
+      "twitter:card": "summary_large_image",
+      "twitter:title": "Keeper Agent - AI Workflow Automation for DeFi",
+      "twitter:description": "Powerful AI workflow automation tool for DeFi. Manage thousands of wallets, execute on-chain actions, automate token launches, trading bots, and browser automation.",
+      "twitter:image": "/images/social-seo-image.png"
+    },
+    "indexing": "navigable"
   }
 }

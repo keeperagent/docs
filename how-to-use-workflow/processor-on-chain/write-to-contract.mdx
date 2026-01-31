@@ -1,0 +1,41 @@
+---
+title: "Processor Write to contract"
+---
+
+This processor creates transactions to interact with any smart contract, just like the [Write Contract](https://basescan.org/token/0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed#writeContract) feature on block explorers. It currently supports EVM chains only.
+
+<div align="center">
+  <img
+    src="/images/write-to-contract-basescan-example.png"
+    alt="For example,  Write Contract on Basescan"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    For example, Write Contract on Basescan
+  </p>
+</div>
+
+<div align="center">
+  <img
+    src="/images/write-to-contract-example.png"
+    alt="For example, call the burn() function to burn DEGEN tokens"
+  />
+  <p style={{ fontSize: "0.875rem", marginTop: "-1rem", color: "#666" }}>
+    For example, call the burn() function to burn DEGEN tokens
+  </p>
+</div>
+
+Configuration details:
+
+| Field name                                | Required? | Detail                                                                                                                                                                                                                                                                                           |
+| ----------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Variable to save result                   | Yes       | This processor returns the transaction hash; pick a variable name to store it. For example, `TX_HASH_WRITE_TO_CONTRACT_EVM`                                                                                                                                                                      |
+| Private key                               | Yes       | This is the private key of the wallet performing the transaction. Each Profile has a default variable for storing the private key, so you can use the default variable `WALLET_PRIVATE_KEY`                                                                                                      |
+| Contract address                          | Yes       | The address of the contract you want to interact with                                                                                                                                                                                                                                            |
+| Contract ABI                              | Yes       | ABI of contract                                                                                                                                                                                                                                                                                  |
+| Method name                               | Yes       | The name of the contract function you need to call                                                                                                                                                                                                                                               |
+| Parameter list                            | No        | The parameters used to call the function                                                                                                                                                                                                                                                         |
+| Native token amount                       | No        | Amount of native token to include with the transaction. Leave it blank if none is required (most functions don't need it)                                                                                                                                                                        |
+| Node endpoint group                       | Yes       | Select the node provider to interact with the blockchain                                                                                                                                                                                                                                         |
+| Gas limit                                 | No        | Gas limit for executing the transaction                                                                                                                                                                                                                                                          |
+| Gas price (Gwei)                          | No        | Gas price for executing the transaction. If you do not specify a value, the gas price will default to the current average on the chain. For best results, it is recommended to set the gas price to increase the likelihood of a successful swap transaction                                     |
+| Wait for the transaction to be confirmed? | No        | If you enable this option, the Processor will wait for the swap transaction to be confirmed before proceeding to the next Processor. If you leave it unchecked, the Processor will broadcast the swap transaction without waiting for confirmation and immediately move on to the next Processor |

@@ -1,0 +1,24 @@
+---
+title: "Overview"
+description: "this section provides an overview of the Processor and its general structure"
+---
+
+A workflow can contain multiple types of Processors, each performing different tasks. The Processors within a workflow run sequentially, once one Processor completes its job, the next Processor begins execution.
+
+<div align="center">
+<img src="/images/processor-structure-overview-1.png" alt="Example workflow for token swapping" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example workflow for token swapping
+
+</p>
+
+</div>
+
+As shown in the example above, the token swap workflow consists of three Processors. When the workflow runs, it will execute each Processor sequentially from `Start` to `Stop`.
+
+1. `Balance retrieval` Processor: Connects to the blockchain node to obtain the wallet's token balance.
+2. `Uniswap Swap` Processor: Executes token swaps from Uniswap pools using the Uniswap Universal Router contract (just like swapping on the Uniswap interface). This processor swaps directly via the contract, without needing a web interface or wallet extensions like Metamask or Rabby.
+3. `Bot message` Processor: Sends any message to a Telegram group chat. In this example, it will send the transaction hash resulting from the previous `Uniswap Swap` Processor.
+
+Each Processor includes various settings and customizations, allowing you to build a wide range of workflows. Details will be described more thoroughly in the following sections.

@@ -1,8 +1,8 @@
-# Mintlify Starter Kit
+# Keeper Agent Documentation
 
-Use the starter kit to get your docs deployed and ready to customize.
+Documentation for Keeper Agent - AI Workflow Automation for DeFi.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+This documentation site is built with Mintlify and contains guides, API references, and examples for using Keeper Agent.
 
 - Guide pages
 - Navigation
@@ -40,4 +40,5 @@ Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/sett
 - If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
 
 ### Resources
+
 - [Mintlify documentation](https://mintlify.com/docs)

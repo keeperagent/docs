@@ -1,0 +1,41 @@
+---
+title: "Processor Create profile"
+description: "Create a new profile in the workflow"
+---
+
+This processor is most useful while you are editing or testing a workflow, helping you spin up test profiles to see how the flow behaves. When you go live, create a campaign and pick the profiles you want to run, which you manage on the Profile page
+
+<Info>
+  Profiles created with this processor are not stored in the local database and exist only for workflow testing
+</Info>
+
+<div align="center">
+![Configure the Create profile processor](/images/create-profile-example.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Configure the Create profile processor
+
+</p>
+
+</div>
+
+In the example above, the processor generates two profile variables: `USER_NAME` and `PASSWORD`
+
+<div align="center">
+![Profile variable details](/images/create-profile-example-3.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Profile variable details
+
+</p>
+
+</div>
+
+A profile bundles multiple attributes, each mapped to a specific variable, so a single profile can hold many (`Variable name`, `Value`) pairs.
+
+## Configuration fields
+
+| Field         | Required | Description                                  |
+| ------------- | -------- | -------------------------------------------- |
+| Variable name | Yes      | The variable name for that profile attribute |
+| Value         | Yes      | The value assigned to the variable           |

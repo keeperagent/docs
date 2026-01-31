@@ -1,0 +1,47 @@
+---
+title: "Processor Bot message"
+description: "Send messages to Telegram groups via bot"
+---
+
+This processor delivers messages to a Telegram group chat through a bot token, bypassing the web interface.
+
+This processor is suitable for many use cases, such as:
+
+- You can craft workflows that monitor on-chain activity and instantly push alerts to a Telegram group.
+- Once the swap completes, it sends you a Telegram notification with the transaction details.
+- Monitor any wallet on the blockchain, and if it sends or receives funds, you’ll get a Telegram alert right away.
+
+<div align="center">
+<img src="/images/bot-message-example.png" alt="Use a bot to deliver messages straight into your Telegram chat" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Use a bot to deliver messages straight into your Telegram chat
+
+</p>
+
+</div>
+
+<div align="center">
+<img src="/images/bot-message-example-3.png" alt="Configure bot message delivery" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Configure bot message delivery
+
+</p>
+
+</div>
+
+## Configuration fields
+
+| Field     | Required | Description                                                              |
+| --------- | -------- | ------------------------------------------------------------------------ |
+| Chat ID   | Yes      | The chat ID                                                              |
+| Bot token | Yes      | The bot's token for integrating with Telegram                            |
+| Message   | Yes      | Your message content, which can be plain text or HTML formatted          |
+| GIF link  | No       | Attach a GIF to accompany the message, attachments must be in GIF format |
+
+## How to find the chat ID
+
+To retrieve the chat ID, first obtain your bot token, then replace `<your_bot_token>` with that value along this path:
+
+`https://api.telegram.org/bot<your_bot_token>/getUpdates`

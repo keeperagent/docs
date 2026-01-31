@@ -1,0 +1,39 @@
+---
+title: "Installation"
+---
+
+Our software supports both **MacOS** and **Window**.
+
+## MacOS installation
+
+Download the macOS installer (`KeeperAgent-X.X.X.dmg`) from the releases page, and then:
+
+1. Double-click the downloaded `.dmg` file
+2. Drag `KeeperAgent.app` to your `Applications` folder
+
+### Bypass macOS Security warning
+
+On first installation, macOS may show a security warning, this is normal and only happens once.
+
+**Option 1: System Settings Method**
+
+1. Try to open `KeeperAgent.app` normally
+2. You'll see a warning: "KeeperAgent cannot be opened because it is from an unidentified developer"
+3. Go to **System Settings** → **Privacy & Security**
+4. Scroll down to find **"Open Anyway"** button next to KeeperAgent
+5. Click **"Open Anyway"**
+6. Confirm by clicking **"Open"** in the dialog
+
+**Option 2: Terminal Method (Advanced)**
+
+On newer macOS versions, you may see a message like "KeeperAgent is damaged and can't be opened" without the "Open anyway" option. If this happens, you can bypass this security check by opening Terminal and running the following command:
+
+```shellscript
+sudo xattr -rd com.apple.quarantine /Applications/KeeperAgent.app
+```
+
+Then open the app normally from Applications folder. After bypassing the warning once, you can open the app normally without any warnings.
+
+## Window installation
+
+We will release the app for window shortly.

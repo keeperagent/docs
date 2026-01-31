@@ -1,0 +1,152 @@
+---
+title: "Processor Request API"
+---
+
+Use this processor when the workflow must interact with an external API, letting you send the request, parse the response, and map the returned data onto Profile attributes.
+
+<div align="center">
+<img src="/images/request-api-example.png" alt="Configure the API request processor" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Configure the API request processor
+
+</p>
+
+</div>
+
+In this example the processor performs a GET request to https://api.restful-api.dev/objects and saves the payload in `API_RESPONSE`
+
+<div align="center">
+<img src="/images/request-api-example-3.png" alt="The result is stored in the profile variable API_RESPONSE" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+The result is stored in the profile variable <code>
+ API_RESPONSE</code>
+
+</p>
+
+</div>
+
+## Configuration fields
+
+| Field name              | Required? | Detail                                                                                                                        |
+| ----------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Variable to save result | Yes       | This processor returns the API response, so pick a variable to capture it. For example **API_RESPONSE**                       |
+| Method                  | Yes       | Select the method:   **GET**, **POST**, **PUT**, **DELETE**                                                                   |
+| URL                     | Yes       | Endpoint of API                                                                                                               |
+| Header                  |           | API request headers                                                                                                           |
+| Query                   | No        | API query parameters                                                                                                          |
+| Extract response        |           | Use this area to parse, calculate, or extract specific fields from the API response, the operations work just like JavaScript |
+
+#### Extract response
+
+In this example, the API response from https://api.restful-api.dev/objects looks like this:
+
+<div align="center">
+<img src="/images/request-api-example-5.png" alt="API response" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+API response
+
+</p>
+
+</div>
+
+To fetch the name of the item whose `id` is `2`, write JavaScript that extracts that field from the response:
+
+<div align="center">
+<img src="/images/request-api-example-7.png" alt="Extract the response with JavaScript code" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Extract the response with JavaScript code
+
+</p>
+
+</div>
+
+When you write JavaScript in the `Extract Response` section, first run the workflow once, open the queue to inspect the API response, then click `Analyze variable`.
+
+<div align="center">
+<img src="/images/request-api-example-9.png" alt="Analyze the API response" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Analyze the API response
+
+</p>
+
+</div>
+
+A popup like this appears afterwards:
+
+<div align="center">
+<img src="/images/request-api-example-11.png" alt="Review the API response details" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Review the API response details
+
+</p>
+
+</div>
+
+Next, tweak the JavaScript to confirm the result meets your needs:
+
+<div align="center">
+<img src="/images/request-api-example-13.png" alt="Grab the item whose id equals 2" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+
+</p>
+
+</div>
+
+Use this code to fetch the item whose `id` is `2`:
+
+```javascript
+return API_RESPONSE.filter((item) => item.id === "2");
+```
+
+Next, adjust the JavaScript like this to capture the name of the item with `id` is `2`:
+
+```javascript
+return API_RESPONSE.filter((item) => item.id === "2")[0].name;
+```
+
+<div align="center">
+<img src="/images/request-api-example-15.png" alt="Retrieve the name of the item whose id is 2" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+
+</p>
+
+</div>
+
+Finally, once you have the result you want, copy that code and paste it into the processor's main configuration:
+
+<div align="center">
+<img src="/images/request-api-example-17.png" alt="Copy code" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Copy code
+
+</p>
+
+</div>
+
+<div align="center">
+<img src="/images/request-api-example-19.png" alt="The finished JavaScript snippet" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+The finished JavaScript snippet
+
+</p>
+
+</div>
+
+The returned value now matches your intent: the name of the item with `id` is `2` :
+
+<div align="center">
+<img src="/images/request-api-example-21.png" alt="The output now gives you the name of the item with id is 2" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }} />
+
+</div>

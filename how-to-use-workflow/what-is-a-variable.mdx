@@ -1,0 +1,65 @@
+---
+title: "What is a variable"
+---
+
+A variable is an important concept in workflow. It allows you to store the result of a Processor after execution, enabling subsequent Processors to access results from previous ones. Variables also store Profile attributes, such as default variables like `WALLET_ADDRESS`, `WALLET_PRIVATE_KEY`, `WALLET_PHRASE`, and more. Variables make Processors more flexible, allowing them to perform tasks based on specific inputs.
+
+## How to use variables
+
+Variable names must be written in uppercase, without spaces, and should not contain special characters. To use a variable in a Processor, enclose its name in curly braces `{` and `}`.
+
+<div align="center">
+![Example of variable WALLET_ADDRESS which stores address of the wallet](/images/what-is-a-variable-image-1.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example of variable WALLET_ADDRESS which stores address of the wallet
+
+</p>
+
+</div>
+
+For example, if you have 1000 Profiles, each containing an EVM wallet, and the workflow runs 10 threads, each thread will operate on a different Profile. All Profiles include variables such as `WALLET_ADDRESS`, `WALLET_PRIVATE_KEY`, and `WALLET_PHRASE`, but their values will differ for each Profile. These variables store the wallet address, private key, and seed phrase, respectively.
+
+## List of default variables in the app
+
+<div align="center">
+![View the list of default variables](/images/what-is-a-variable-image-2.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+View the list of default variables
+
+</p>
+
+</div>
+
+## Variable as Processor result
+
+For Processors that need to store returned results, you can save these results in a variable specified in the `Variable to save result` field.
+
+<div align="center">
+![Example of storing the result from the Balance retrieval Processor](/images/what-is-a-variable-image-3.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Example of storing the result from the Balance retrieval Processor
+
+</p>
+
+</div>
+
+<Note>
+  Note: It is recommended to use different variable names to store results for each Processor. If a subsequent Processor uses the same variable name as a previous one, the value will be overwritten by the latest Processor.
+</Note>
+
+Subsequent Processors can use the results of previous Processors through variables.
+
+<div align="center">
+![Select the variable for the Uniswap swap Processor](/images/what-is-a-variable-image-4.png)
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Select the variable for the Uniswap swap Processor
+
+</p>
+
+</div>
+
+In this example, the `Uniswap swap` Processor will use the wallet's token balance from the `WALLET_BALANCE` variable, which is the result of the `Balance retrieval` Processor. You don't need to enter the variable manually, just hover over the `Select variable` section and choose the variable you want to use.

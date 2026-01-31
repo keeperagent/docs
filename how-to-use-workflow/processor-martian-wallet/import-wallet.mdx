@@ -1,0 +1,35 @@
+---
+title: "Processor Import wallet"
+description: "Import a wallet into Martian"
+---
+
+This processor imports a Martian wallet using its seed phrase. For workflow that rely on Martian wallet, place this processor right after Start, it automates the entire import process.
+
+<div align="center">
+<img src="/images/martian-import-wallet-example.png" alt="Import wallet onMartian" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Import wallet onMartian
+
+</p>
+
+</div>
+
+Import wallet by seed phrase
+
+<div align="center">
+<img src="/images/martian-import-wallet-example-3.png" alt="Import wallet by seed phrase" style={{ maxWidth: "600px" }} />
+
+<p style={{ fontSize:"0.875rem",marginTop:"-1rem",color:"#666" }}>
+Import wallet by seed phrase
+
+</p>
+
+</div>
+
+## Configuration fields
+
+| Field       | Required | Description                                                                                                                     |
+| ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Seed phrase | Yes      | The wallet's seed phrase is stored in each profile's default `WALLET_PHRASE` variable, so you can access it directly from there |
+| Password    | Yes      | This is the password used to unlock the Martian wallet                                                                          |
